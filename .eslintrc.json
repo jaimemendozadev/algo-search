@@ -25,6 +25,7 @@
     },
     "rules": {
         "no-console": 0,
+        "no-unused-vars": "warn",
         "indent": [
             "error",
             2
@@ -41,5 +42,8 @@
             "error",
             "always"
         ]
-    }
+    },
+    "plugins": [
+      "inferno"
+    ]
 }
