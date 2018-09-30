@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "env"
+  ],
+  "plugins": [
+    ["babel-plugin-inferno", {"imports": true}],
+    "transform-runtime",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
+}
