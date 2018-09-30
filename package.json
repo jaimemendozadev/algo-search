@@ -4,13 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "precommit": "lint-staged",
     "dev:start": "nodemon index.js",
     "dev:build": "webpack --mode=development --watch"
   },
   "lint-staged": {
-    "dev/**/*.{js,jsx,json,css,md}": ["eslint --fix ./dev/index.jsx", "git add"],
-    "index.js/server/**/*.{js}": ["eslint --fix index.js/server/index.js", "git add"]
+    "dev/**/*.{js,jsx,json,css,md}": [
+      "eslint --fix ./dev/index.jsx",
+      "git add"
+    ],
+    "index.js": [
+      "eslint --fix index.js",
+      "git add"
+    ]
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -37,5 +42,10 @@
     "prettier": "^1.14.3",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
