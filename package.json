@@ -4,8 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "precommit": "lint-staged",
     "dev:start": "nodemon index.js",
     "dev:build": "webpack --mode=development --watch"
+  },
+  "lint-staged": {
+    "dev/**/*.{js,jsx,json,css,md}": ["eslint --fix ./dev/index.jsx", "git add"]
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -22,7 +26,14 @@
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "1.7.0",
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-inferno": "^7.10.0",
+    "eslint-plugin-prettier": "^2.7.0",
+    "husky": "^1.0.1",
+    "lint-staged": "^7.3.0",
     "nodemon": "^1.18.4",
+    "prettier": "^1.14.3",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   }
