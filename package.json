@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "seed": "node seed/index.js",
     "dev:start": "nodemon index.js",
     "dev:build": "webpack --mode=development --watch"
   },
