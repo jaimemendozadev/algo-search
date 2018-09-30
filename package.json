@@ -13,7 +13,7 @@
       "git add"
     ],
     "index.js": [
-      "eslint --fix index.js",
+      "eslint --fix ./index.js",
       "git add"
     ]
   },
