@@ -3127,6 +3127,11 @@ indexof@0.0.1:
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
   integrity sha1-gtwzbSMrkGIXnQWrMpOmYFn9Q10=
 
+inferno-devtools@^5.6.1:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/inferno-devtools/-/inferno-devtools-5.6.1.tgz#ac68a35f9450252c7534d1b7d4fb2dceaf4ec1ab"
+  integrity sha512-9/tDwjytcWFF12kmecH7KEWcX/whqTqsocumuIEAQKFxALzS7rJtl8ecYhs12dUgNBGvFzBTTtysDFJPzZnvkg==
+
 inferno-shared@5.6.1:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/inferno-shared/-/inferno-shared-5.6.1.tgz#5c5e471dbff72eb9f1768f97510a32e5fa76b6dd"
