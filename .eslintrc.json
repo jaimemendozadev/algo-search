@@ -13,7 +13,6 @@
     },
     "extends": [
         "plugin:prettier/recommended", 
-        "eslint:recommended", 
         "plugin:inferno/recommended"
     ],
     "parserOptions": {
