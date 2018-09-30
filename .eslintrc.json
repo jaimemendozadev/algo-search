@@ -12,7 +12,8 @@
         "propWrapperFunctions": [ "forbidExtraProps" ]
     },
     "extends": [
-        "plugin:prettier/recommended", 
+        "plugin:prettier/recommended",
+        "eslint:recommended", 
         "plugin:inferno/recommended"
     ],
     "parserOptions": {
