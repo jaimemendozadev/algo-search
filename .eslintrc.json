@@ -11,7 +11,11 @@
         },
         "propWrapperFunctions": [ "forbidExtraProps" ]
     },
-    "extends": ["plugin:prettier/recommended", "eslint:recommended", "plugin:inferno/recommended"],
+    "extends": [
+        "plugin:prettier/recommended", 
+        "eslint:recommended", 
+        "plugin:inferno/recommended"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -20,6 +24,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "no-console": 0,
         "indent": [
             "error",
             2
