@@ -10,6 +10,16 @@ class Search extends Component {
     this.state = defaultState;
   }
 
+  checkInput = event => {
+    const { formValue } = this.state;
+
+    if (formValue == defaultState.formValue) {
+      this.setState({ formValue: "" });
+    } else if (formValue.length === 0) {
+      this.setState(defaultState);
+    }
+  };
+
   handleFormChange = event => {
     console.log("inside handleForm");
     this.setState({
@@ -20,10 +30,11 @@ class Search extends Component {
   render() {
     const { formValue } = this.state;
     return (
-      <div>
+      <div className="search-bar-container">
         <h1>Search Bar</h1>
         <form className="searchForm">
           <input
+            onClick={this.checkInput}
             onInput={this.handleFormChange}
             type="text"
             value={formValue}
