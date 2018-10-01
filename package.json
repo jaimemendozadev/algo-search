@@ -22,10 +22,12 @@
     "algoliasearch": "^3.30.0",
     "autocomplete.js": "^0.31.0",
     "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "inferno": "^5.6.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
