@@ -4,7 +4,7 @@ import styles from "./sass/styles.scss";
 
 class App extends Component {
   render() {
-    const { algoliaClient } = this.props;
+    const { client, index } = this.props;
     return (
       <div>
         <header>
@@ -12,7 +12,7 @@ class App extends Component {
           <h2>Find the apps you love.</h2>
           <h2>And the ones you’re about to.</h2>
         </header>
-        <Search algoliaClient={algoliaClient} />
+        <Search client={client} index={index} />
       </div>
     );
   }

@@ -21,7 +21,6 @@ class Search extends Component {
   };
 
   handleFormChange = event => {
-    console.log("inside handleForm");
     this.setState({
       searchTerm: event.target.value
     });
@@ -29,11 +28,9 @@ class Search extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const { algoliaClient } = this.props;
-    const { searchTerm } = this.props;
-    const index = algoliaClient.initIndex("app_store_index");
 
-    console.log("this.props inside search ", this.props);
+    const { searchTerm } = this.state;
+    const { index } = this.props;
 
     this.setState(defaultState);
 
