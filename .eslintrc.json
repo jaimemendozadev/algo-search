@@ -16,13 +16,7 @@
         "eslint:recommended", 
         "plugin:inferno/recommended"
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2015,
-        "sourceType": "module"
-    },
+    "parser": "babel-eslint",
     "rules": {
         "no-console": 0,
         "no-unused-vars": "warn",

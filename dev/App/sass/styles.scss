@@ -21,3 +21,15 @@ header {
     font-size: 2.5em;
   }
 }
+
+
+.searchForm {
+  input {
+    border: 1px solid black;
+    font-size: 3em;
+    padding: 1.5em;
+    color: grey;
+    width: 400px;
+    height: 100px;
+  }
+}
