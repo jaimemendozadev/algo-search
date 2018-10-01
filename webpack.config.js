@@ -13,6 +13,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js?x$/, exclude: /node_modules/, loader: "babel-loader" },
+      { test: /\.(svg|png|jpe?g)$/, loader: "file-loader" },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]

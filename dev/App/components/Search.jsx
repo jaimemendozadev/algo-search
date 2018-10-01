@@ -30,13 +30,15 @@ class Search extends Component {
     event.preventDefault();
 
     const { searchTerm } = this.state;
-    const { index } = this.props;
+    const { index, callback } = this.props;
 
     this.setState(defaultState);
 
     const searchResults = await index.search(searchTerm);
 
     console.log("searchResults are ", searchResults);
+
+    callback(searchResults.hits);
   };
 
   render() {

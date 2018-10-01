@@ -12,6 +12,9 @@ body {
 header {
   margin-top: 3em;
   text-align: center; }
+  header img {
+    height: 100px;
+    width: 100px; }
   header h1, header h2 {
     font-size: 2.5em; }
 
@@ -28,4 +31,27 @@ header {
   color: grey;
   width: 500px;
   height: 100px; }
+
+.results-view-container {
+  display: flex;
+  margin: 3em auto;
+  flex-wrap: wrap;
+  width: 90%; }
+
+.result-card {
+  border: 1px solid black;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .result-card .img-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; }
+    .result-card .img-name-container img {
+      width: 50px;
+      height: 50px; }
 
