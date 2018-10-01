@@ -1,7 +1,7 @@
 import { Component, render } from "inferno";
 
 const defaultState = {
-  formValue: "TYPE TO SEARCH"
+  searchTerm: "TYPE TO SEARCH"
 };
 
 class Search extends Component {
@@ -10,12 +10,12 @@ class Search extends Component {
     this.state = defaultState;
   }
 
-  checkInput = event => {
-    const { formValue } = this.state;
+  checkInput = () => {
+    const { searchTerm } = this.state;
 
-    if (formValue == defaultState.formValue) {
-      this.setState({ formValue: "" });
-    } else if (formValue.length === 0) {
+    if (searchTerm == defaultState.searchTerm) {
+      this.setState({ searchTerm: "" });
+    } else if (searchTerm.length === 0) {
       this.setState(defaultState);
     }
   };
@@ -23,21 +23,36 @@ class Search extends Component {
   handleFormChange = event => {
     console.log("inside handleForm");
     this.setState({
-      formValue: event.target.value
+      searchTerm: event.target.value
     });
   };
 
+  handleSubmit = async event => {
+    event.preventDefault();
+    const { algoliaClient } = this.props;
+    const { searchTerm } = this.props;
+    const index = algoliaClient.initIndex("app_store_index");
+
+    console.log("this.props inside search ", this.props);
+
+    this.setState(defaultState);
+
+    const searchResults = await index.search(searchTerm);
+
+    console.log("searchResults are ", searchResults);
+  };
+
   render() {
-    const { formValue } = this.state;
+    const { searchTerm } = this.state;
     return (
       <div className="search-bar-container">
         <h1>Search Bar</h1>
-        <form className="searchForm">
+        <form onSubmit={this.handleSubmit} className="searchForm">
           <input
             onClick={this.checkInput}
             onInput={this.handleFormChange}
             type="text"
-            value={formValue}
+            value={searchTerm}
           />
         </form>
       </div>
