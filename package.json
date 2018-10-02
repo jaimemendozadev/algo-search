@@ -20,11 +20,13 @@
   },
   "dependencies": {
     "algoliasearch": "^3.30.0",
+    "algoliasearch-helper": "^2.26.1",
     "autocomplete.js": "^0.31.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "inferno": "^5.6.1",
+    "instantsearch.js": "^2.10.2",
     "path": "^0.12.7"
   },
   "devDependencies": {

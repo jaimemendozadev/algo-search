@@ -21,9 +21,14 @@ class Search extends Component {
   };
 
   handleFormChange = event => {
-    this.setState({
-      searchTerm: event.target.value
-    });
+    const { helper } = this.state;
+    const searchTerm = event.target.value;
+    this.setState(
+      {
+        searchTerm
+      },
+      () => helper.setQuery(searchTerm).search()
+    );
   };
 
   handleSubmit = async event => {
@@ -41,6 +46,18 @@ class Search extends Component {
     callback(searchResults.hits);
   };
 
+  componentDidMount = () => {
+    const { helper } = this.props;
+    const { callback } = this.props;
+
+    helper.on("result", content => {
+      console.log("content is ", content);
+      callback(content.hits);
+    });
+
+    this.setState({ helper });
+  };
+
   render() {
     const { searchTerm } = this.state;
     return (
@@ -48,6 +65,7 @@ class Search extends Component {
         <h1>Search Bar</h1>
         <form onSubmit={this.handleSubmit} className="searchForm">
           <input
+            className="searchInput"
             onClick={this.checkInput}
             onInput={this.handleFormChange}
             type="text"

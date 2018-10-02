@@ -4,12 +4,14 @@ import ResultsView from "./components/ResultsView.jsx";
 import styles from "./sass/styles.scss";
 import AppIcon from "./assets/app-store-icon.png";
 
+const defaultState = {
+  hits: []
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hits: []
-    };
+    this.state = defaultState;
   }
 
   setSearchResults = hits => {
@@ -19,7 +21,7 @@ class App extends Component {
   };
 
   render() {
-    const { client, index } = this.props;
+    const { client, index, helper } = this.props;
     const { hits } = this.state;
     return (
       <div>
@@ -32,6 +34,7 @@ class App extends Component {
         <Search
           client={client}
           index={index}
+          helper={helper}
           callback={this.setSearchResults}
         />
 
