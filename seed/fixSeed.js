@@ -6,8 +6,8 @@ console.log("records.length is ", oldRecords.length);
 const updateJSON = async () => {
   const testArray = [];
 
-  for (let i = 0; i < 1; i++) {
-    testArray.push(oldRecords[500]);
+  for (let i = 700; i < 710; i++) {
+    testArray.push(oldRecords[i]);
   }
 
   for (const app of testArray) {

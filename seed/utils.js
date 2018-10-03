@@ -13,8 +13,6 @@ const getImageUrl = async uri => {
     const result = await rp(options).then($ => {
       const fetched = $(".l-column.small-5.medium-4.large-3.small-valign-top");
 
-      console.log("fetched is ", fetched.html());
-
       const imageURL = fetched.find("img").attr("src");
 
       console.log("imageURL is ", imageURL);
@@ -24,8 +22,9 @@ const getImageUrl = async uri => {
 
     return "Success";
   } catch (error) {
-    console.log("Error fetching image URL ", error);
-    return "Error";
+    console.log("Error fetching image URL ");
+
+    return "";
   }
 };
 
