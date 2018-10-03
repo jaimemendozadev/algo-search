@@ -2,7 +2,12 @@ import * as inferno from "inferno";
 import algoliasearch from "algoliasearch";
 import algoliasearchHelper from "algoliasearch-helper";
 import { initDevTools } from "inferno-devtools";
+import { Provider } from "inferno-redux";
+import { createStore } from "redux";
 import App from "./App/index.jsx";
+import rootReducer from "./App/services/redux";
+
+const store = createStore(rootReducer);
 
 const indexName = "app_store_index";
 
@@ -11,13 +16,13 @@ const client = algoliasearch(
   process.env.ALGOLIA_PUBLIC_SEARCH_API_KEY
 );
 
-const searchIndex = client.initIndex(indexName);
-
 const helper = algoliasearchHelper(client, indexName);
-helper.search();
+
 initDevTools();
 
 inferno.render(
-  <App client={client} index={searchIndex} helper={helper} />,
+  <Provider store={store}>
+    <App client={client} helper={helper} />
+  </Provider>,
   document.querySelector(".container")
 );

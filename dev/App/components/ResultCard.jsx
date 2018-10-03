@@ -19,7 +19,7 @@ const ResultCard = ({ result }) => {
 
       <div className="img-name-container">
         <img src={Icon} />
-        <p>{checkHighlight(result)}</p>
+        <p>{result.name}</p>
       </div>
     </div>
   );

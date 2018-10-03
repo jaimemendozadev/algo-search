@@ -1,4 +1,6 @@
 import { Component, render } from "inferno";
+import { connect } from "inferno-redux";
+import { setSearchResults } from "../services/redux/actions.js";
 
 const defaultState = {
   searchTerm: "TYPE TO SEARCH"
@@ -31,29 +33,24 @@ class Search extends Component {
     );
   };
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
 
-    const { searchTerm } = this.state;
-    const { index, callback } = this.props;
+    const { searchTerm, helper } = this.state;
 
-    this.setState(defaultState);
-
-    const searchResults = await index.search(searchTerm);
-
-    console.log("searchResults are ", searchResults);
-
-    callback(searchResults.hits);
+    this.setState(defaultState, () => helper.setQuery(searchTerm).search());
   };
 
   componentDidMount = () => {
-    const { helper } = this.props;
-    const { callback } = this.props;
+    const { helper, SetSearchResults } = this.props;
+    console.log("this.props inside CDM ", this.props);
 
     helper.on("result", content => {
       console.log("content is ", content);
-      callback(content.hits);
+      SetSearchResults(content);
     });
+
+    helper.search();
 
     this.setState({ helper });
   };
@@ -77,4 +74,7 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default connect(
+  null,
+  { SetSearchResults: setSearchResults }
+)(Search);
