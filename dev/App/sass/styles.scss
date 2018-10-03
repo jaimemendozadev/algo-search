@@ -45,14 +45,35 @@ header {
   }
 }
 
-.results-view-container {
+
+.results-facelist-container {
+  display: flex;
+  justify-content: space-around;
   margin: 3em auto;
+
+  .facelist-container {
+    width: 30%;
+  }
+
+  .results-view-container {
+    width: 70%;
+  }
+}
+
+.facelist-container {
+  border: 1px solid black;
+}
+
+
+
+
+.results-view-container {
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   width: 90%;
   border: 1px solid goldenrod;
-  
 }
 
 .result-card {
@@ -85,7 +106,5 @@ header {
       height: 50px;
     }
   }
-
-  
 
 }

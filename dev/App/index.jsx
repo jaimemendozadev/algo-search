@@ -25,8 +25,14 @@ class App extends Component {
         </header>
         <Search client={client} helper={helper} />
 
-        {facets.length > 0 ? <FacetList facets={facets} /> : ""}
-        {hits.length > 0 ? <ResultsView hits={hits} /> : ""}
+        <div className="results-facelist-container">
+          {facets.length > 0 ? (
+            <FacetList helper={helper} facets={facets} />
+          ) : (
+            ""
+          )}
+          {hits.length > 0 ? <ResultsView hits={hits} /> : ""}
+        </div>
       </div>
     );
   }
