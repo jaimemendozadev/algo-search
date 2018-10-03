@@ -11,12 +11,13 @@ const getImageUrl = async uri => {
 
   try {
     const result = await rp(options).then($ => {
-      const fetched = $("div.l-row picture.product-hero__artwork");
-      console.log("fetched is ", fetched);
+      const fetched = $(".l-column.small-5.medium-4.large-3.small-valign-top");
 
-      const children = fetched["0"].children;
+      console.log("fetched is ", fetched.html());
 
-      children.forEach(child => console.log("the child is ", child));
+      const imageURL = fetched.find("img").attr("src");
+
+      console.log("imageURL is ", imageURL);
 
       return fetched;
     });

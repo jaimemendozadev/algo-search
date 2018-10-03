@@ -7,7 +7,7 @@ const updateJSON = async () => {
   const testArray = [];
 
   for (let i = 0; i < 1; i++) {
-    testArray.push(oldRecords[i]);
+    testArray.push(oldRecords[500]);
   }
 
   for (const app of testArray) {
