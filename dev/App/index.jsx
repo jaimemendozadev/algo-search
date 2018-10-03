@@ -14,9 +14,13 @@ class App extends Component {
       <div>
         <header>
           <img src={AppIcon} />
-          <h1>App Store</h1>
-          <h2>Find the apps you love.</h2>
-          <h2>And the ones you’re about to.</h2>
+          <h1>
+            App Store
+            <br />
+            Find the apps you love.
+            <br />
+            And the ones you’re about to.
+          </h1>
         </header>
         <Search client={client} helper={helper} />
 

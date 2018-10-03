@@ -59,7 +59,6 @@ class Search extends Component {
     const { searchTerm } = this.state;
     return (
       <div className="search-bar-container">
-        <h1>Search Bar</h1>
         <form onSubmit={this.handleSubmit} className="searchForm">
           <input
             className="searchInput"
