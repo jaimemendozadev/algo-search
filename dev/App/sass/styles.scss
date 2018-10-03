@@ -62,6 +62,11 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10px;
+
+  &:hover {
+    border: 1px solid goldenrod;
+  }
 
   .highlighted em {
     background-color: yellow;

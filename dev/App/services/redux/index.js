@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import { searchResults } from "./reducers.js";
+import { searchResults, facetResults } from "./reducers.js";
 
 const rootReducer = combineReducers({
-  searchResults
+  searchResults,
+  facetResults
 });
 
 export default rootReducer;

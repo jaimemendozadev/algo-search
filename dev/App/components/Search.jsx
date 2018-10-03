@@ -1,6 +1,9 @@
 import { Component, render } from "inferno";
 import { connect } from "inferno-redux";
-import { setSearchResults } from "../services/redux/actions.js";
+import {
+  setSearchResults,
+  setFacetCategories
+} from "../services/redux/actions.js";
 
 const defaultState = {
   searchTerm: "TYPE TO SEARCH"
@@ -25,6 +28,8 @@ class Search extends Component {
   handleFormChange = event => {
     const { helper } = this.state;
     const searchTerm = event.target.value;
+
+    console.log("helper on form change ", helper);
     this.setState(
       {
         searchTerm
@@ -42,15 +47,17 @@ class Search extends Component {
   };
 
   componentDidMount = () => {
-    const { helper, SetSearchResults } = this.props;
+    const { helper, SetSearchResults, SetFacetCategories } = this.props;
     console.log("this.props inside CDM ", this.props);
 
     helper.on("result", content => {
       console.log("content is ", content);
+
+      const facets = content.getFacetValues("category");
+
+      SetFacetCategories(facets);
       SetSearchResults(content);
     });
-
-    helper.search();
 
     this.setState({ helper });
   };
@@ -75,5 +82,8 @@ class Search extends Component {
 
 export default connect(
   null,
-  { SetSearchResults: setSearchResults }
+  {
+    SetSearchResults: setSearchResults,
+    SetFacetCategories: setFacetCategories
+  }
 )(Search);

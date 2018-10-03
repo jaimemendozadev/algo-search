@@ -46,7 +46,10 @@ header {
   height: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 10px; }
+  .result-card:hover {
+    border: 1px solid goldenrod; }
   .result-card .highlighted em {
     background-color: yellow; }
   .result-card .img-name-container {

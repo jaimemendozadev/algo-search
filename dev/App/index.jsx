@@ -2,12 +2,13 @@ import { Component, render } from "inferno";
 import { connect } from "inferno-redux";
 import Search from "./components/Search.jsx";
 import ResultsView from "./components/ResultsView.jsx";
+import FacetList from "./components/FacetList.jsx";
 import styles from "./sass/styles.scss";
 import AppIcon from "./assets/app-store-icon.png";
 
 class App extends Component {
   render() {
-    const { client, helper, hits } = this.props;
+    const { client, helper, hits, facets } = this.props;
 
     console.log("hits inside App ", hits);
     return (
@@ -24,15 +25,17 @@ class App extends Component {
         </header>
         <Search client={client} helper={helper} />
 
+        {facets.length > 0 ? <FacetList facets={facets} /> : ""}
         {hits.length > 0 ? <ResultsView hits={hits} /> : ""}
       </div>
     );
   }
 }
 
-const mapDispatchToProps = ({ searchResults }) => {
+const mapDispatchToProps = ({ searchResults, facetResults }) => {
   return {
-    hits: searchResults.hits
+    hits: searchResults.hits,
+    facets: facetResults.facets
   };
 };
 
