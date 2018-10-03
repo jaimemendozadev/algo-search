@@ -1,4 +1,6 @@
 import { Component, render } from "inferno";
+import { connect } from "inferno-redux";
+import { setSearchResults } from "../services/redux/actions.js";
 
 const defaultState = {
   searchTerm: "TYPE TO SEARCH"
@@ -21,24 +23,36 @@ class Search extends Component {
   };
 
   handleFormChange = event => {
-    this.setState({
-      searchTerm: event.target.value
-    });
+    const { helper } = this.state;
+    const searchTerm = event.target.value;
+    this.setState(
+      {
+        searchTerm
+      },
+      () => helper.setQuery(searchTerm).search()
+    );
   };
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
 
-    const { searchTerm } = this.state;
-    const { index, callback } = this.props;
+    const { searchTerm, helper } = this.state;
 
-    this.setState(defaultState);
+    this.setState(defaultState, () => helper.setQuery(searchTerm).search());
+  };
 
-    const searchResults = await index.search(searchTerm);
+  componentDidMount = () => {
+    const { helper, SetSearchResults } = this.props;
+    console.log("this.props inside CDM ", this.props);
 
-    console.log("searchResults are ", searchResults);
+    helper.on("result", content => {
+      console.log("content is ", content);
+      SetSearchResults(content);
+    });
 
-    callback(searchResults.hits);
+    helper.search();
+
+    this.setState({ helper });
   };
 
   render() {
@@ -48,6 +62,7 @@ class Search extends Component {
         <h1>Search Bar</h1>
         <form onSubmit={this.handleSubmit} className="searchForm">
           <input
+            className="searchInput"
             onClick={this.checkInput}
             onInput={this.handleFormChange}
             type="text"
@@ -59,4 +74,7 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default connect(
+  null,
+  { SetSearchResults: setSearchResults }
+)(Search);

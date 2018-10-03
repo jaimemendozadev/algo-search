@@ -13,31 +13,16 @@
     },
     "extends": [
         "plugin:prettier/recommended",
-        "eslint:recommended", 
         "plugin:inferno/recommended"
     ],
     "parser": "babel-eslint",
     "rules": {
         "no-console": 0,
         "no-unused-vars": "warn",
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "prettier/prettier": "error"
     },
     "plugins": [
+      "prettier",
       "inferno"
     ]
 }
