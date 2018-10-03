@@ -47,6 +47,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+  .result-card .highlighted em {
+    background-color: yellow; }
   .result-card .img-name-container {
     display: flex;
     flex-direction: column;

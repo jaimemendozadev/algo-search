@@ -63,6 +63,9 @@ header {
   flex-direction: column;
   justify-content: space-between;
 
+  .highlighted em {
+    background-color: yellow;
+  }
   
 
   .img-name-container{
