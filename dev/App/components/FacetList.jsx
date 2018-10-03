@@ -1,4 +1,6 @@
 import { Component, render } from "inferno";
+import { connect } from "inferno-redux";
+import { setCurrentFacetCategory } from "../services/redux/actions";
 
 class FacetList extends Component {
   renderCategories = faceListArray => {
@@ -25,4 +27,13 @@ class FacetList extends Component {
   }
 }
 
-export default FacetList;
+const mapStateToProps = ({ facetResults }) => {
+  return {
+    currentFacet: facetResults.currentFacet
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { SetCurrentFacetCategory: setCurrentFacetCategory }
+)(FacetList);

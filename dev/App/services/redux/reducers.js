@@ -1,4 +1,4 @@
-import { GOT_SEARCH_HIT, GOT_FACETS } from "./types.js";
+import { GOT_SEARCH_HIT, GOT_FACETS, CURRENT_FACET } from "./types.js";
 
 const defaultSearchState = {
   hits: []
@@ -14,6 +14,7 @@ export const searchResults = (state = defaultSearchState, action) => {
 };
 
 const defaultFacetState = {
+  currentFacet: "",
   facets: []
 };
 
@@ -21,6 +22,8 @@ export const facetResults = (state = defaultFacetState, action) => {
   switch (action.type) {
     case GOT_FACETS:
       return Object.assign({}, state, { facets: action.payload });
+    case CURRENT_FACET:
+      return Object.assign({}, state, { currentFacet: action.payload });
   }
 
   return state;
