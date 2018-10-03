@@ -42,7 +42,8 @@ header {
     width: 70%; }
 
 .facelist-container {
-  border: 1px solid black; }
+  border: 1px solid black;
+  height: 100%; }
 
 .results-view-container {
   margin: 0 auto;
