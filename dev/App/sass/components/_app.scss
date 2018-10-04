@@ -1,13 +1,27 @@
+// May change for responsive layout
+.app-container {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid aquamarine;
+}
+
+.search-sort-container {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+
+
 .results-facetlist-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 3em auto;
-  
-    .facetlist-container {
-      width: 20%;
-    }
-  
-    .results-view-container {
-      width: 70%;
-    }
+  display: flex;
+  justify-content: space-around;
+  margin: 3em auto;
+
+  .facetlist-container {
+    width: 20%;
   }
+
+  .results-view-container {
+    width: 70%;
+  }
+}

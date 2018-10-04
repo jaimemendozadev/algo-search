@@ -1,6 +1,7 @@
 import { Component, render } from "inferno";
 import { connect } from "inferno-redux";
 import Search from "./components/Search.jsx";
+import SortBy from "./components/SortBy.jsx";
 import ResultsView from "./components/ResultsView.jsx";
 import FacetList from "./components/FacetList.jsx";
 import Header from "./components/Header.jsx";
@@ -30,13 +31,14 @@ class App extends Component {
 
   render() {
     const { client, helper, hits } = this.props;
-
-    // console.log("hits inside App ", hits);
     return (
-      <div>
+      <div className="app-container">
         <Header />
 
-        <Search client={client} helper={helper} />
+        <div className="search-sort-container">
+          <Search client={client} helper={helper} />
+          <SortBy />
+        </div>
 
         <div className="results-facetlist-container">
           <FacetList helper={helper} />

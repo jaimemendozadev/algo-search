@@ -4,7 +4,7 @@ import algoliasearchHelper from "algoliasearch-helper";
 import { initDevTools } from "inferno-devtools";
 import { Provider } from "inferno-redux";
 import { createStore } from "redux";
-import App from "./App/index.jsx";
+import App from "./App/App.jsx";
 import rootReducer from "./App/services/redux";
 
 const store = createStore(rootReducer);
