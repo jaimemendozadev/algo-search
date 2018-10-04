@@ -110,8 +110,8 @@ header {
 
 .result-card {
   border: 1px solid black;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
