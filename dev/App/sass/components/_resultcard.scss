@@ -19,9 +19,11 @@
     .img-name-container{
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
       text-align: center;
+      height: 150px;
+      border: 1px solid green;
   
       img {
         width: 50px;

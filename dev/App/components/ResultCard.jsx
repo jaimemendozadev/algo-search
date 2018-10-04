@@ -5,19 +5,24 @@ const createMarkup = name => {
 };
 
 const ResultCard = ({ result, name }) => {
+  const appName = name.length > 20 ? `${name.slice(0, 21)}...` : name;
+
   return (
     <div className="result-card">
       <div>{result.category}</div>
 
-      <a href={result.link} target="_blank" rel="noopener noreferrer">
-        <div className="img-name-container">
+      <div className="img-name-container">
+        <a href={result.link} target="_blank" rel="noopener noreferrer">
           <img src={PhoneIcon} />
-          <div
-            className="highlighted"
-            dangerouslySetInnerHTML={createMarkup(name)}
-          />
-        </div>
-      </a>
+        </a>
+        <a
+          href={result.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="highlighted"
+          dangerouslySetInnerHTML={createMarkup(appName)}
+        />
+      </div>
     </div>
   );
 };
