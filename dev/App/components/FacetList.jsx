@@ -1,56 +1,35 @@
 import { Component, render } from "inferno";
 import { connect } from "inferno-redux";
-import { getCurrentFacetResults } from "../services/redux/actions";
 import { CategoryTag } from "./CategoryTag.jsx";
 
 class FacetList extends Component {
   handleCurrentFacet = facet => {
-    console.log("inside handleCurrentFacet");
-    const { helper } = this.state;
+    const { helper } = this.props;
 
-    // Make Facet API call
+    // Use helper to search the index with clicked category
+    // helper in App componentDidMount will be
+    // listening to "result" event and process data accordingly
     helper.toggleFacetRefinement("category", facet).search();
   };
 
   renderCategories = faceListArray => {
-    const { currentFacet } = this.props;
-
-    const facetNameKey = Object.keys(currentFacet)[0];
-
-    return faceListArray.map(({ name, count }, idx) => (
+    return faceListArray.map(({ name, count, isRefined }, idx) => (
       <CategoryTag
-        facetNameKey={facetNameKey}
-        currentFacet={currentFacet}
-        callback={this.handleCurrentFacet}
+        key={`${idx}-${name}-${count}`}
         name={name}
         count={count}
-        key={`${idx}-${name}-${count}`}
+        isRefined={isRefined}
+        callback={this.handleCurrentFacet}
       />
     ));
   };
 
-  componentDidMount = () => {
-    const { GetCurrentFacetResults, helper } = this.props;
-
-    helper.on("result", content => {
-      console.log("content inside FacetList is ", content);
-
-      const facet = content.facets[0]["data"];
-
-      console.log("facet inside CDM ", facet);
-
-      // Fire Redux Action
-      GetCurrentFacetResults(facet, content.hits);
-    });
-
-    this.setState({
-      helper
-    });
-  };
-
   render() {
     const { facets } = this.props;
-    console.log("this.props inside FacetList ", this.props);
+    if (facets.length == 0) {
+      return null;
+    }
+
     return (
       <div className="facelist-container">
         <h1>FacetList</h1>
@@ -62,11 +41,11 @@ class FacetList extends Component {
 
 const mapStateToProps = ({ facetResults }) => {
   return {
-    currentFacet: facetResults.currentFacet
+    facets: facetResults.facets
   };
 };
 
 export default connect(
   mapStateToProps,
-  { GetCurrentFacetResults: getCurrentFacetResults }
+  null
 )(FacetList);

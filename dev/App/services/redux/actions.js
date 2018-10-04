@@ -1,22 +1,11 @@
-import { GOT_SEARCH_HIT, GOT_FACETS, CURRENT_FACET } from "./types.js";
+import { GOT_HITS_AND_FACETS } from "./types.js";
 
-export const setSearchResults = ({ hits }) => {
+export const setHitsAndCategories = (hits, facets) => {
   return {
-    type: GOT_SEARCH_HIT,
-    payload: hits
-  };
-};
-
-export const getCurrentFacetResults = (facet, hits) => {
-  return {
-    type: CURRENT_FACET,
-    payload: { facet, hits }
-  };
-};
-
-export const setFacetCategories = facets => {
-  return {
-    type: GOT_FACETS,
-    payload: facets
+    type: GOT_HITS_AND_FACETS,
+    payload: {
+      hits,
+      facets
+    }
   };
 };

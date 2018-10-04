@@ -1,4 +1,4 @@
-import Icon from "./assets/phone-icon.svg";
+import PhoneIcon from "./assets/phone-icon.svg";
 
 const createMarkup = name => {
   return { __html: name };
@@ -10,7 +10,7 @@ const ResultCard = ({ result, name }) => {
       <div>{result.category}</div>
 
       <div className="img-name-container">
-        <img src={Icon} />
+        <img src={PhoneIcon} />
         <div
           className="highlighted"
           dangerouslySetInnerHTML={createMarkup(name)}

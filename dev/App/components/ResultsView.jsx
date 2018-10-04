@@ -1,6 +1,10 @@
+import { connect } from "inferno-redux";
 import ResultCard from "./ResultCard.jsx";
 
 const ResultsView = ({ hits }) => {
+  if (hits.length === 0) {
+    return null;
+  }
   return (
     <div className="results-view-container">
       {hits.map(result => {
@@ -11,4 +15,11 @@ const ResultsView = ({ hits }) => {
   );
 };
 
-export default ResultsView;
+const mapStateToProps = ({ searchResults }) => {
+  return { hits: searchResults.hits };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(ResultsView);

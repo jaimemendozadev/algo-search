@@ -3,49 +3,53 @@ import { connect } from "inferno-redux";
 import Search from "./components/Search.jsx";
 import ResultsView from "./components/ResultsView.jsx";
 import FacetList from "./components/FacetList.jsx";
+import Header from "./components/Header.jsx";
+import { setHitsAndCategories } from "./services/redux/actions.js";
 import styles from "./sass/styles.scss";
-import AppIcon from "./assets/app-store-icon.png";
 
 class App extends Component {
-  render() {
-    const { client, helper, hits, facets } = this.props;
+  componentDidMount = () => {
+    const { helper, SetHitsAndCategories } = this.props;
 
-    console.log("hits inside App ", hits);
+    helper.on("result", content => {
+      const facetValues = content.getFacetValues("category");
+
+      console.log("facetValues in App CDM ", facetValues);
+      console.log("content in App CDM is ", content);
+      console.log("\n");
+      console.log("\n");
+
+      // on App componentDidMount, we setup helper to listen for "results"
+      // on "results" event, we'll get new hits and facet category values
+
+      SetHitsAndCategories(content.hits, facetValues);
+    });
+
+    this.setState({ helper });
+  };
+
+  render() {
+    const { client, helper, hits } = this.props;
+
+    // console.log("hits inside App ", hits);
     return (
       <div>
-        <header>
-          <img src={AppIcon} />
-          <h1>
-            App Store
-            <br />
-            Find the apps you love.
-            <br />
-            And the ones you’re about to.
-          </h1>
-        </header>
+        <Header />
+
         <Search client={client} helper={helper} />
 
         <div className="results-facelist-container">
-          {facets.length > 0 ? (
-            <FacetList helper={helper} facets={facets} />
-          ) : (
-            ""
-          )}
-          {hits.length > 0 ? <ResultsView hits={hits} /> : ""}
+          <FacetList helper={helper} />
+          <ResultsView />
         </div>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = ({ searchResults, facetResults }) => {
-  return {
-    hits: searchResults.hits,
-    facets: facetResults.facets
-  };
-};
-
 export default connect(
-  mapDispatchToProps,
-  null
+  null,
+  {
+    SetHitsAndCategories: setHitsAndCategories
+  }
 )(App);
