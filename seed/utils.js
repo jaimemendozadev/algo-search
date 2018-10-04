@@ -17,10 +17,10 @@ const getImageUrl = async uri => {
 
       console.log("imageURL is ", imageURL);
 
-      return fetched;
+      return imageURL;
     });
 
-    return "Success";
+    return result;
   } catch (error) {
     console.log("Error fetching image URL ");
 

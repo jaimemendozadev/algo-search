@@ -79,7 +79,7 @@ header {
     border: 1px solid black;
     color: $default-font-color;
     margin-bottom: 1em;
-    width: 50%;
+    width: 80%;
     height: 50px;
   }
 }
@@ -107,7 +107,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-
+  margin-bottom: 1.5em;
   &:hover {
     border: 1px solid goldenrod;
   }
