@@ -1,7 +1,7 @@
 import { Component, render } from "inferno";
 
 const defaultState = {
-  hideDropdown: false
+  hideDropdown: true
 };
 
 class SortBy extends Component {
@@ -10,11 +10,17 @@ class SortBy extends Component {
     this.state = defaultState;
   }
 
+  toggleDropdown = () => {
+    const { hideDropdown } = this.state;
+
+    this.setState({ hideDropdown: !hideDropdown });
+  };
+
   render() {
     const { hideDropdown } = this.state;
     return (
       <div className="sortby-container">
-        <div className="sortby-header-container">
+        <div onClick={this.toggleDropdown} className="sortby-header-container">
           <div className="sortby-header">SortBy</div>
         </div>
 

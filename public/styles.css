@@ -86,17 +86,20 @@ header {
 .app-container {
   width: 90%;
   margin: 0 auto;
-  border: 1px solid aquamarine; }
+  border: 1px solid aquamarine;
+  min-height: 100vh; }
 
 .search-sort-container {
   display: flex;
   width: 90%;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3em; }
 
 .results-facetlist-container {
   display: flex;
   justify-content: space-around;
-  margin: 3em auto; }
+  margin: 0 auto; }
   .results-facetlist-container .facetlist-container {
     width: 20%; }
   .results-facetlist-container .results-view-container {

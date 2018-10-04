@@ -33,11 +33,13 @@ class App extends Component {
     const { client, helper, hits } = this.props;
     return (
       <div className="app-container">
-        <Header />
+        <div className="header-search-sort-container">
+          <Header />
 
-        <div className="search-sort-container">
-          <Search client={client} helper={helper} />
-          <SortBy />
+          <div className="search-sort-container">
+            <Search client={client} helper={helper} />
+            <SortBy />
+          </div>
         </div>
 
         <div className="results-facetlist-container">
