@@ -9,6 +9,26 @@ body {
   box-sizing: border-box;
   font-family: 'Eczar', serif; }
 
+.spinner {
+  margin: 2em auto 0;
+  border: 15px solid #f4bcbc;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border-top-color: transparent;
+  animation: rotate 2s infinite linear; }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/*
+    Spinner Citation
+  
+    https://stackoverflow.com/questions/42234855/is-it-possible-to-draw-a-partial-circle-outline-in-css-open-ring-shape  
+  */
 header {
   margin-top: 3em;
   text-align: center; }
@@ -32,23 +52,23 @@ header {
   width: 500px;
   height: 50px; }
 
-.results-facelist-container {
+.results-facetlist-container {
   display: flex;
   justify-content: space-around;
   margin: 3em auto; }
-  .results-facelist-container .facelist-container {
+  .results-facetlist-container .facetlist-container {
     width: 20%; }
-  .results-facelist-container .results-view-container {
+  .results-facetlist-container .results-view-container {
     width: 70%; }
 
-.facelist-container {
+.facetlist-container {
   border: 1px solid black;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center; }
-  .facelist-container .category-tag {
+  .facetlist-container .category-tag {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,26 +112,4 @@ header {
     .result-card .img-name-container img {
       width: 50px;
       height: 50px; }
-
-.spinner {
-  margin: 2em auto 0;
-  border: 15px solid #f4bcbc;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  border-top-color: transparent;
-  animation: rotate 2s infinite linear; }
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
-/*
-  Spinner Citation
-
-  https://stackoverflow.com/questions/42234855/is-it-possible-to-draw-a-partial-circle-outline-in-css-open-ring-shape  
-
-*/
 

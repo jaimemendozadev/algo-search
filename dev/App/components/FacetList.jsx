@@ -31,7 +31,7 @@ class FacetList extends Component {
     }
 
     return (
-      <div className="facelist-container">
+      <div className="facetlist-container">
         <h1>FacetList</h1>
         {facets.length > 0 ? this.renderCategories(facets) : ""}
       </div>

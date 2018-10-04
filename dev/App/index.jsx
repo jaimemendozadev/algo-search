@@ -38,7 +38,7 @@ class App extends Component {
 
         <Search client={client} helper={helper} />
 
-        <div className="results-facelist-container">
+        <div className="results-facetlist-container">
           <FacetList helper={helper} />
           <ResultsView />
         </div>

@@ -1,0 +1,19 @@
+$default-font-color: grey;
+
+.search-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .searchForm {
+    .searchInput {
+      text-align: center;
+      border: 1px solid black;
+      font-size: 2em;
+      padding: 1em;
+      color: $default-font-color;
+      width: 500px;
+      height: 50px;
+    }
+  }
