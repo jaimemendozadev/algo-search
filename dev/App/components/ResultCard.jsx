@@ -9,13 +9,15 @@ const ResultCard = ({ result, name }) => {
     <div className="result-card">
       <div>{result.category}</div>
 
-      <div className="img-name-container">
-        <img src={PhoneIcon} />
-        <div
-          className="highlighted"
-          dangerouslySetInnerHTML={createMarkup(name)}
-        />
-      </div>
+      <a href={result.link} target="_blank" rel="noopener noreferrer">
+        <div className="img-name-container">
+          <img src={PhoneIcon} />
+          <div
+            className="highlighted"
+            dangerouslySetInnerHTML={createMarkup(name)}
+          />
+        </div>
+      </a>
     </div>
   );
 };

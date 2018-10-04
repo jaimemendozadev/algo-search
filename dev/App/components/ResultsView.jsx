@@ -1,9 +1,10 @@
 import { connect } from "inferno-redux";
+import Spinner from "./Spinner.jsx";
 import ResultCard from "./ResultCard.jsx";
 
 const ResultsView = ({ hits }) => {
   if (hits.length === 0) {
-    return null;
+    return <Spinner />;
   }
   return (
     <div className="results-view-container">

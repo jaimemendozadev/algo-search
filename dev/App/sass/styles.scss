@@ -131,3 +131,26 @@ header {
   }
 
 }
+
+
+.spinner {
+  margin: 2em auto 0;
+  border: 15px solid rgb(244, 188, 188);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border-top-color: transparent; 
+  animation: rotate 2s infinite linear;
+  
+  @keyframes rotate {
+    0%    { transform: rotate(0deg);  }
+    100%  { transform: rotate(360deg);  }
+  }
+}
+
+/*
+  Spinner Citation
+
+  https://stackoverflow.com/questions/42234855/is-it-possible-to-draw-a-partial-circle-outline-in-css-open-ring-shape  
+
+*/
