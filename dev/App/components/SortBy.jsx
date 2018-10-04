@@ -14,8 +14,8 @@ class SortBy extends Component {
     const { hideDropdown } = this.state;
     return (
       <div className="sortby-container">
-        <div className="sortby-row sortby-header-container">
-          <h1>SortBy</h1>
+        <div className="sortby-header-container">
+          <div className="sortby-header">SortBy</div>
         </div>
 
         <div className={`btn-dropdown ${hideDropdown ? "hideDropdown" : ""}`}>

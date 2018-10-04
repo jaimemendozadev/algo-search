@@ -1,5 +1,8 @@
-@mixin baseSortByRow {
-  border: 1px solid black;
+@mixin baseSortByRowStyling($top-border: true) {
+  border-top: if($top-border, 1px solid black, 0);
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
   height: 50px;
   width: 300px;
 }
@@ -7,11 +10,16 @@
 
 
 .sortby-container {
-  .sortby-row {
-    @include baseSortByRow();    
-  }
 
   .sortby-header-container {
+    @include baseSortByRowStyling(true); 
+    display: flex;
+    
+    align-items: center;
+
+    .sortby-header {
+      margin-left: 1em;
+    }
   }
 
 
@@ -21,7 +29,7 @@
     
     .btn {
       
-      @include baseSortByRow();
+      @include baseSortByRowStyling(false);
 
       font-size: 1em;
       background-color: white;

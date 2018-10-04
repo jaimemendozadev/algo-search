@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "clean:public": "rm ./public/bundle.js && rm ./public/*.svg && rm ./public/*.png && rm ./public/*.css",
     "seed": "node seed/index.js",
     "dev:start": "nodemon index.js",
     "dev:build": "webpack --mode=development --watch"
