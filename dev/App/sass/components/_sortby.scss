@@ -1,8 +1,39 @@
-.sortby-container {
+@mixin baseSortByRow {
   border: 1px solid black;
-  padding: 1em;
   height: 50px;
   width: 300px;
-  display: flex;
-  align-items: center;
+}
+
+
+
+.sortby-container {
+  .sortby-row {
+    @include baseSortByRow();    
+  }
+
+  .sortby-header-container {
+  }
+
+
+  .btn-dropdown {
+    display: flex;
+    flex-direction: column;
+    
+    .btn {
+      
+      @include baseSortByRow();
+
+      font-size: 1em;
+      background-color: white;
+     
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .hideDropdown {
+    display: none;
+  }
 }
