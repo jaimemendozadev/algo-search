@@ -16,6 +16,10 @@ class SortBy extends Component {
     this.setState({ hideDropdown: !hideDropdown });
   };
 
+  handleButtonClick = event => {
+    console.log("inside handleButtonClick!");
+  };
+
   render() {
     const { hideDropdown } = this.state;
     return (
@@ -25,8 +29,12 @@ class SortBy extends Component {
         </div>
 
         <div className={`btn-dropdown ${hideDropdown ? "hideDropdown" : ""}`}>
-          <div className="btn">Asc. Rank</div>
-          <div className="btn">Desc. Rank</div>
+          <div onClick={this.handleButtonClick} className="btn">
+            <span>Asc. Rank</span>
+          </div>
+          <div onClick={this.handleButtonClick} className="btn">
+            <span>Desc. Rank</span>
+          </div>
         </div>
       </div>
     );

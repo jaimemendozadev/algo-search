@@ -30,18 +30,22 @@
 
     display: flex;
     flex-direction: column;
+
+    
     
     .btn {
-      
       @include baseSortByRowStyling();
 
       font-size: 1em;
       background-color: white;
      
-
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+
+      span {
+        margin-left: 1em;
+      }
     }
   }
 

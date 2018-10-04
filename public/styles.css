@@ -80,7 +80,9 @@ header {
       background-color: white;
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: flex-start; }
+      .sortby-container .btn-dropdown .btn span {
+        margin-left: 1em; }
   .sortby-container .hideDropdown {
     display: none; }
 
