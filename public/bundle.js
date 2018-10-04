@@ -97,6 +97,18 @@ eval("module.exports = __webpack_require__.p + \"d7e59806722094fdf7976c6c3e81f88
 
 /***/ }),
 
+/***/ "./dev/App/components/CategoryTag.jsx":
+/*!********************************************!*\
+  !*** ./dev/App/components/CategoryTag.jsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.CategoryTag = undefined;\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar CategoryTag = exports.CategoryTag = function CategoryTag(_ref) {\n  var name = _ref.name,\n      count = _ref.count,\n      currentFacet = _ref.currentFacet,\n      facetNameKey = _ref.facetNameKey,\n      callback = _ref.callback;\n  return (0, _inferno.createVNode)(1, \"div\", \"category-tag \" + (facetNameKey === name ? \"facet-highlight\" : \"\"), [name, (0, _inferno.createTextVNode)(\": \"), count], 0, {\n    \"onClick\": function onClick() {\n      return callback(name);\n    }\n  });\n};\n\n//# sourceURL=webpack:///./dev/App/components/CategoryTag.jsx?");
+
+/***/ }),
+
 /***/ "./dev/App/components/FacetList.jsx":
 /*!******************************************!*\
   !*** ./dev/App/components/FacetList.jsx ***!
@@ -105,7 +117,7 @@ eval("module.exports = __webpack_require__.p + \"d7e59806722094fdf7976c6c3e81f88
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ \"./node_modules/babel-runtime/core-js/object/get-prototype-of.js\");\n\nvar _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);\n\nvar _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ \"./node_modules/babel-runtime/helpers/classCallCheck.js\");\n\nvar _classCallCheck3 = _interopRequireDefault(_classCallCheck2);\n\nvar _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ \"./node_modules/babel-runtime/helpers/createClass.js\");\n\nvar _createClass3 = _interopRequireDefault(_createClass2);\n\nvar _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ \"./node_modules/babel-runtime/helpers/possibleConstructorReturn.js\");\n\nvar _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);\n\nvar _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ \"./node_modules/babel-runtime/helpers/inherits.js\");\n\nvar _inherits3 = _interopRequireDefault(_inherits2);\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _infernoRedux = __webpack_require__(/*! inferno-redux */ \"./node_modules/inferno-redux/dist/index.esm.js\");\n\nvar _actions = __webpack_require__(/*! ../services/redux/actions */ \"./dev/App/services/redux/actions.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar FacetList = function (_Component) {\n  (0, _inherits3.default)(FacetList, _Component);\n\n  function FacetList() {\n    var _ref;\n\n    var _temp, _this, _ret;\n\n    (0, _classCallCheck3.default)(this, FacetList);\n\n    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {\n      args[_key] = arguments[_key];\n    }\n\n    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FacetList.__proto__ || (0, _getPrototypeOf2.default)(FacetList)).call.apply(_ref, [this].concat(args))), _this), _this.renderCategories = function (faceListArray) {\n      return faceListArray.map(function (_ref2, idx) {\n        var name = _ref2.name,\n            count = _ref2.count;\n        return (0, _inferno.createVNode)(1, \"div\", \"category-tag\", [name, (0, _inferno.createTextVNode)(\": \"), count], 0, null, idx + \"-\" + name + \"-\" + count);\n      });\n    }, _this.componentDidMount = function () {\n      var facets = _this.props.facets;\n    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);\n  }\n\n  (0, _createClass3.default)(FacetList, [{\n    key: \"render\",\n    value: function render() {\n      var facets = this.props.facets;\n\n      console.log(\"this.props inside FacetList \", this.props);\n      return (0, _inferno.createVNode)(1, \"div\", \"facelist-container\", [(0, _inferno.createVNode)(1, \"h1\", null, (0, _inferno.createTextVNode)(\"FacetList\"), 2), facets.length > 0 ? this.renderCategories(facets) : \"\"], 0);\n    }\n  }]);\n  return FacetList;\n}(_inferno.Component);\n\nvar mapStateToProps = function mapStateToProps(_ref3) {\n  var facetResults = _ref3.facetResults;\n\n  return {\n    currentFacet: facetResults.currentFacet\n  };\n};\n\nexports.default = (0, _infernoRedux.connect)(mapStateToProps, { SetCurrentFacetCategory: _actions.setCurrentFacetCategory })(FacetList);\n\n//# sourceURL=webpack:///./dev/App/components/FacetList.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _keys = __webpack_require__(/*! babel-runtime/core-js/object/keys */ \"./node_modules/babel-runtime/core-js/object/keys.js\");\n\nvar _keys2 = _interopRequireDefault(_keys);\n\nvar _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ \"./node_modules/babel-runtime/core-js/object/get-prototype-of.js\");\n\nvar _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);\n\nvar _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ \"./node_modules/babel-runtime/helpers/classCallCheck.js\");\n\nvar _classCallCheck3 = _interopRequireDefault(_classCallCheck2);\n\nvar _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ \"./node_modules/babel-runtime/helpers/createClass.js\");\n\nvar _createClass3 = _interopRequireDefault(_createClass2);\n\nvar _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ \"./node_modules/babel-runtime/helpers/possibleConstructorReturn.js\");\n\nvar _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);\n\nvar _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ \"./node_modules/babel-runtime/helpers/inherits.js\");\n\nvar _inherits3 = _interopRequireDefault(_inherits2);\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _infernoRedux = __webpack_require__(/*! inferno-redux */ \"./node_modules/inferno-redux/dist/index.esm.js\");\n\nvar _actions = __webpack_require__(/*! ../services/redux/actions */ \"./dev/App/services/redux/actions.js\");\n\nvar _CategoryTag = __webpack_require__(/*! ./CategoryTag.jsx */ \"./dev/App/components/CategoryTag.jsx\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar FacetList = function (_Component) {\n  (0, _inherits3.default)(FacetList, _Component);\n\n  function FacetList() {\n    var _ref;\n\n    var _temp, _this, _ret;\n\n    (0, _classCallCheck3.default)(this, FacetList);\n\n    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {\n      args[_key] = arguments[_key];\n    }\n\n    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FacetList.__proto__ || (0, _getPrototypeOf2.default)(FacetList)).call.apply(_ref, [this].concat(args))), _this), _this.handleCurrentFacet = function (facet) {\n      console.log(\"inside handleCurrentFacet\");\n      var helper = _this.state.helper;\n\n      // Make Facet API call\n\n      helper.toggleFacetRefinement(\"category\", facet).search();\n    }, _this.renderCategories = function (faceListArray) {\n      var currentFacet = _this.props.currentFacet;\n\n\n      var facetNameKey = (0, _keys2.default)(currentFacet)[0];\n\n      return faceListArray.map(function (_ref2, idx) {\n        var name = _ref2.name,\n            count = _ref2.count;\n        return (0, _inferno.createComponentVNode)(2, _CategoryTag.CategoryTag, {\n          \"facetNameKey\": facetNameKey,\n          \"currentFacet\": currentFacet,\n          \"callback\": _this.handleCurrentFacet,\n          \"name\": name,\n          \"count\": count\n        }, idx + \"-\" + name + \"-\" + count);\n      });\n    }, _this.componentDidMount = function () {\n      var _this$props = _this.props,\n          GetCurrentFacetResults = _this$props.GetCurrentFacetResults,\n          helper = _this$props.helper;\n\n\n      helper.on(\"result\", function (content) {\n        console.log(\"content inside FacetList is \", content);\n\n        var facet = content.facets[0][\"data\"];\n\n        console.log(\"facet inside CDM \", facet);\n\n        // Fire Redux Action\n        GetCurrentFacetResults(facet, content.hits);\n      });\n\n      _this.setState({\n        helper: helper\n      });\n    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);\n  }\n\n  (0, _createClass3.default)(FacetList, [{\n    key: \"render\",\n    value: function render() {\n      var facets = this.props.facets;\n\n      console.log(\"this.props inside FacetList \", this.props);\n      return (0, _inferno.createVNode)(1, \"div\", \"facelist-container\", [(0, _inferno.createVNode)(1, \"h1\", null, (0, _inferno.createTextVNode)(\"FacetList\"), 2), facets.length > 0 ? this.renderCategories(facets) : \"\"], 0);\n    }\n  }]);\n  return FacetList;\n}(_inferno.Component);\n\nvar mapStateToProps = function mapStateToProps(_ref3) {\n  var facetResults = _ref3.facetResults;\n\n  return {\n    currentFacet: facetResults.currentFacet\n  };\n};\n\nexports.default = (0, _infernoRedux.connect)(mapStateToProps, { GetCurrentFacetResults: _actions.getCurrentFacetResults })(FacetList);\n\n//# sourceURL=webpack:///./dev/App/components/FacetList.jsx?");
 
 /***/ }),
 
@@ -183,11 +195,11 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./dev/
 /*!*******************************************!*\
   !*** ./dev/App/services/redux/actions.js ***!
   \*******************************************/
-/*! exports provided: setSearchResults, setCurrentFacetCategory, setFacetCategories */
+/*! exports provided: setSearchResults, getCurrentFacetResults, setFacetCategories */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setSearchResults\", function() { return setSearchResults; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setCurrentFacetCategory\", function() { return setCurrentFacetCategory; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setFacetCategories\", function() { return setFacetCategories; });\n/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ \"./dev/App/services/redux/types.js\");\n\n\nconst setSearchResults = ({ hits }) => {\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_SEARCH_HIT\"],\n    payload: hits\n  };\n};\n\nconst setCurrentFacetCategory = facet => {\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"CURRENT_FACET\"],\n    payload: facet\n  };\n};\n\nconst setFacetCategories = facets => {\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_FACETS\"],\n    payload: facets\n  };\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/actions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setSearchResults\", function() { return setSearchResults; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getCurrentFacetResults\", function() { return getCurrentFacetResults; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setFacetCategories\", function() { return setFacetCategories; });\n/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ \"./dev/App/services/redux/types.js\");\n\n\nconst setSearchResults = ({ hits }) => {\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_SEARCH_HIT\"],\n    payload: hits\n  };\n};\n\nconst getCurrentFacetResults = (facet, hits) => {\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"CURRENT_FACET\"],\n    payload: { facet, hits }\n  };\n};\n\nconst setFacetCategories = facets => {\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_FACETS\"],\n    payload: facets\n  };\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/actions.js?");
 
 /***/ }),
 
@@ -211,7 +223,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redu
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"searchResults\", function() { return searchResults; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"facetResults\", function() { return facetResults; });\n/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ \"./dev/App/services/redux/types.js\");\n\n\nconst defaultSearchState = {\n  hits: []\n};\n\nconst searchResults = (state = defaultSearchState, action) => {\n  switch (action.type) {\n    case _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_SEARCH_HIT\"]:\n      return Object.assign({}, state, { hits: action.payload });\n  }\n\n  return state;\n};\n\nconst defaultFacetState = {\n  currentFacet: \"\",\n  facets: []\n};\n\nconst facetResults = (state = defaultFacetState, action) => {\n  switch (action.type) {\n    case _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_FACETS\"]:\n      return Object.assign({}, state, { facets: action.payload });\n    case _types_js__WEBPACK_IMPORTED_MODULE_0__[\"CURRENT_FACET\"]:\n      return Object.assign({}, state, { currentFacet: action.payload });\n  }\n\n  return state;\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/reducers.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"searchResults\", function() { return searchResults; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"facetResults\", function() { return facetResults; });\n/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ \"./dev/App/services/redux/types.js\");\n\n\nconst defaultSearchState = {\n  hits: []\n};\n\nconst searchResults = (state = defaultSearchState, action) => {\n  switch (action.type) {\n    case _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_SEARCH_HIT\"]:\n      return Object.assign({}, state, { hits: action.payload });\n    case _types_js__WEBPACK_IMPORTED_MODULE_0__[\"CURRENT_FACET\"]:\n      return Object.assign({}, state, { hits: action.payload.hits });\n  }\n\n  return state;\n};\n\nconst defaultFacetState = {\n  currentFacet: \"\",\n  facets: []\n};\n\nconst facetResults = (state = defaultFacetState, action) => {\n  switch (action.type) {\n    case _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_FACETS\"]:\n      return Object.assign({}, state, { facets: action.payload });\n    case _types_js__WEBPACK_IMPORTED_MODULE_0__[\"CURRENT_FACET\"]:\n      return Object.assign({}, state, { currentFacet: action.payload.facet });\n  }\n\n  return state;\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/reducers.js?");
 
 /***/ }),
 
@@ -700,6 +712,17 @@ eval("module.exports = { \"default\": __webpack_require__(/*! core-js/library/fn
 
 /***/ }),
 
+/***/ "./node_modules/babel-runtime/core-js/object/keys.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/babel-runtime/core-js/object/keys.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = { \"default\": __webpack_require__(/*! core-js/library/fn/object/keys */ \"./node_modules/core-js/library/fn/object/keys.js\"), __esModule: true };\n\n//# sourceURL=webpack:///./node_modules/babel-runtime/core-js/object/keys.js?");
+
+/***/ }),
+
 /***/ "./node_modules/babel-runtime/core-js/object/set-prototype-of.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/babel-runtime/core-js/object/set-prototype-of.js ***!
@@ -823,6 +846,17 @@ eval("__webpack_require__(/*! ../../modules/es6.object.define-property */ \"./no
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("__webpack_require__(/*! ../../modules/es6.object.get-prototype-of */ \"./node_modules/core-js/library/modules/es6.object.get-prototype-of.js\");\nmodule.exports = __webpack_require__(/*! ../../modules/_core */ \"./node_modules/core-js/library/modules/_core.js\").Object.getPrototypeOf;\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/fn/object/get-prototype-of.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/object/keys.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/object/keys.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ../../modules/es6.object.keys */ \"./node_modules/core-js/library/modules/es6.object.keys.js\");\nmodule.exports = __webpack_require__(/*! ../../modules/_core */ \"./node_modules/core-js/library/modules/_core.js\").Object.keys;\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/fn/object/keys.js?");
 
 /***/ }),
 
@@ -1530,6 +1564,17 @@ eval("var $export = __webpack_require__(/*! ./_export */ \"./node_modules/core-j
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// 19.1.2.9 Object.getPrototypeOf(O)\nvar toObject = __webpack_require__(/*! ./_to-object */ \"./node_modules/core-js/library/modules/_to-object.js\");\nvar $getPrototypeOf = __webpack_require__(/*! ./_object-gpo */ \"./node_modules/core-js/library/modules/_object-gpo.js\");\n\n__webpack_require__(/*! ./_object-sap */ \"./node_modules/core-js/library/modules/_object-sap.js\")('getPrototypeOf', function () {\n  return function getPrototypeOf(it) {\n    return $getPrototypeOf(toObject(it));\n  };\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/es6.object.get-prototype-of.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es6.object.keys.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.object.keys.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// 19.1.2.14 Object.keys(O)\nvar toObject = __webpack_require__(/*! ./_to-object */ \"./node_modules/core-js/library/modules/_to-object.js\");\nvar $keys = __webpack_require__(/*! ./_object-keys */ \"./node_modules/core-js/library/modules/_object-keys.js\");\n\n__webpack_require__(/*! ./_object-sap */ \"./node_modules/core-js/library/modules/_object-sap.js\")('keys', function () {\n  return function keys(it) {\n    return $keys(toObject(it));\n  };\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/es6.object.keys.js?");
 
 /***/ }),
 

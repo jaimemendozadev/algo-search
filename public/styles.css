@@ -37,13 +37,30 @@ header {
   justify-content: space-around;
   margin: 3em auto; }
   .results-facelist-container .facelist-container {
-    width: 30%; }
+    width: 20%; }
   .results-facelist-container .results-view-container {
     width: 70%; }
 
 .facelist-container {
   border: 1px solid black;
-  height: 100%; }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+  .facelist-container .category-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    color: grey;
+    margin-bottom: 1em;
+    width: 50%;
+    height: 50px; }
+
+.facet-highlight {
+  background-color: #141414;
+  color: white; }
 
 .results-view-container {
   margin: 0 auto;

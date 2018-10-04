@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Eczar');
 
+$default-font-color: grey;
+
+
+
 *:before, 
 *:after {
   margin: 0;
@@ -39,7 +43,7 @@ header {
     border: 1px solid black;
     font-size: 2em;
     padding: 1em;
-    color: grey;
+    color: $default-font-color;
     width: 500px;
     height: 50px;
   }
@@ -52,7 +56,7 @@ header {
   margin: 3em auto;
 
   .facelist-container {
-    width: 30%;
+    width: 20%;
   }
 
   .results-view-container {
@@ -63,10 +67,28 @@ header {
 .facelist-container {
   border: 1px solid black;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .category-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    color: $default-font-color;
+    margin-bottom: 1em;
+    width: 50%;
+    height: 50px;
+  }
 }
 
 
-
+.facet-highlight {
+  background-color: lighten(black, 8);
+  color: white;
+}
 
 .results-view-container {
   margin: 0 auto;

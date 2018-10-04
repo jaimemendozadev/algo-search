@@ -7,10 +7,10 @@ export const setSearchResults = ({ hits }) => {
   };
 };
 
-export const setCurrentFacetCategory = facet => {
+export const getCurrentFacetResults = (facet, hits) => {
   return {
     type: CURRENT_FACET,
-    payload: facet
+    payload: { facet, hits }
   };
 };
 

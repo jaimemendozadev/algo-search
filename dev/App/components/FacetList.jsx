@@ -1,18 +1,51 @@
 import { Component, render } from "inferno";
 import { connect } from "inferno-redux";
-import { setCurrentFacetCategory } from "../services/redux/actions";
+import { getCurrentFacetResults } from "../services/redux/actions";
+import { CategoryTag } from "./CategoryTag.jsx";
 
 class FacetList extends Component {
+  handleCurrentFacet = facet => {
+    console.log("inside handleCurrentFacet");
+    const { helper } = this.state;
+
+    // Make Facet API call
+    helper.toggleFacetRefinement("category", facet).search();
+  };
+
   renderCategories = faceListArray => {
+    const { currentFacet } = this.props;
+
+    const facetNameKey = Object.keys(currentFacet)[0];
+
     return faceListArray.map(({ name, count }, idx) => (
-      <div className="category-tag" key={`${idx}-${name}-${count}`}>
-        {name}: {count}
-      </div>
+      <CategoryTag
+        facetNameKey={facetNameKey}
+        currentFacet={currentFacet}
+        callback={this.handleCurrentFacet}
+        name={name}
+        count={count}
+        key={`${idx}-${name}-${count}`}
+      />
     ));
   };
 
   componentDidMount = () => {
-    const { facets } = this.props;
+    const { GetCurrentFacetResults, helper } = this.props;
+
+    helper.on("result", content => {
+      console.log("content inside FacetList is ", content);
+
+      const facet = content.facets[0]["data"];
+
+      console.log("facet inside CDM ", facet);
+
+      // Fire Redux Action
+      GetCurrentFacetResults(facet, content.hits);
+    });
+
+    this.setState({
+      helper
+    });
   };
 
   render() {
@@ -35,5 +68,5 @@ const mapStateToProps = ({ facetResults }) => {
 
 export default connect(
   mapStateToProps,
-  { SetCurrentFacetCategory: setCurrentFacetCategory }
+  { GetCurrentFacetResults: getCurrentFacetResults }
 )(FacetList);
