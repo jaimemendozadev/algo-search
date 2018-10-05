@@ -11,7 +11,7 @@ body {
 
 .spinner {
   margin: 2em auto 0;
-  border: 15px solid #f4bcbc;
+  border: 15px solid #2571ED;
   border-radius: 50%;
   height: 100px;
   width: 100px;
@@ -96,7 +96,7 @@ header {
   display: flex;
   width: 90%;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 3em; }
 
 .results-facetlist-container {
@@ -139,8 +139,8 @@ header {
 
 .result-card {
   border: 1px solid black;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

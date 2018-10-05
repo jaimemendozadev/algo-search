@@ -10,7 +10,7 @@ import rootReducer from "./App/services/redux";
 const store = createStore(rootReducer);
 
 const indexName = "app_store_index";
-const helperOptions = { facets: ["category"] };
+const helperOptions = { facets: ["category"], hitsPerPage: 50 };
 
 const client = algoliasearch(
   process.env.ALGOLIA_APP_ID,
