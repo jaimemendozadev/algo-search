@@ -38,7 +38,7 @@ class App extends Component {
 
           <div className="search-sort-container">
             <Search client={client} helper={helper} />
-            <SortBy />
+            <SortBy helper={helper} />
           </div>
         </div>
 

@@ -1,7 +1,9 @@
 import { Component, render } from "inferno";
+import { setDropdownClass, displayCurrentSetting } from "./utils.jsx";
 
 const defaultState = {
-  hideDropdown: true
+  hideDropdown: true,
+  sortBy: null
 };
 
 class SortBy extends Component {
@@ -16,23 +18,41 @@ class SortBy extends Component {
     this.setState({ hideDropdown: !hideDropdown });
   };
 
-  handleButtonClick = event => {
-    console.log("inside handleButtonClick!");
+  handleTabClick = index => {
+    const { helper, hideDropdown } = this.props;
+
+    const indexKey = {
+      "Asc. Rank": "app_store_index_rank_asc",
+      "Desc. Rank": "app_store_index_rank_desc"
+    };
+
+    this.setState(
+      {
+        sortBy: index,
+        hideDropdown: !hideDropdown
+      },
+      () => helper.setIndex(indexKey[index]).search()
+    );
   };
 
   render() {
-    const { hideDropdown } = this.state;
+    const { hideDropdown, sortBy } = this.state;
     return (
       <div className="sortby-container">
         <div onClick={this.toggleDropdown} className="sortby-header-container">
           <div className="sortby-header">SortBy</div>
+
+          {displayCurrentSetting(hideDropdown, sortBy)}
         </div>
 
-        <div className={`btn-dropdown ${hideDropdown ? "hideDropdown" : ""}`}>
-          <div onClick={this.handleButtonClick} className="btn">
+        <div className={setDropdownClass(hideDropdown)}>
+          <div onClick={() => this.handleTabClick("Asc. Rank")} className="btn">
             <span>Asc. Rank</span>
           </div>
-          <div onClick={this.handleButtonClick} className="btn">
+          <div
+            onClick={() => this.handleTabClick("Desc. Rank")}
+            className="btn"
+          >
             <span>Desc. Rank</span>
           </div>
         </div>

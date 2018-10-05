@@ -62,9 +62,27 @@ header {
     height: 50px;
     width: 300px;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    justify-content: space-between; }
     .sortby-container .sortby-header-container .sortby-header {
-      margin-left: 1em; }
+      margin-left: 1em;
+      width: 70%; }
+    .sortby-container .sortby-header-container .sortby-current-setting {
+      margin-right: 1em;
+      display: flex;
+      align-items: center; }
+    .sortby-container .sortby-header-container .null-current-setting {
+      justify-content: flex-end;
+      width: 30%; }
+    .sortby-container .sortby-header-container .asc-desc-setting {
+      justify-content: space-between;
+      width: 40%; }
+    .sortby-container .sortby-header-container img {
+      width: 20px;
+      height: 20px; }
+      .sortby-container .sortby-header-container img.up-arrow {
+        width: 10px;
+        height: 10px; }
   .sortby-container .btn-dropdown {
     position: absolute;
     top: 100%;

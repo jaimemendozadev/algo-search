@@ -13,13 +13,42 @@
 
   .sortby-header-container {
     border-top: 1px solid black;
+
     @include baseSortByRowStyling(); 
     display: flex;
-    
     align-items: center;
+    justify-content: space-between;
 
     .sortby-header {
       margin-left: 1em;
+      width: 70%;
+    }
+
+    .sortby-current-setting {
+      margin-right: 1em;
+      display: flex;
+      align-items: center;
+    }
+
+    .null-current-setting {
+      justify-content: flex-end;
+      width: 30%;
+    }
+
+    .asc-desc-setting {
+      justify-content: space-between;
+      width: 40%;
+
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+
+      &.up-arrow {
+        width: 10px;
+        height: 10px;
+      }
     }
   }
 

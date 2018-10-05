@@ -6,9 +6,9 @@ class FacetList extends Component {
   handleCurrentFacet = facet => {
     const { helper } = this.props;
 
-    // Use helper to search the index with clicked category
-    // helper in App componentDidMount will be
-    // listening to "result" event and process data accordingly
+    // Use helper to search the index with clicked category.
+    // Helper in App componentDidMount will be
+    // listening to "result" event and process data accordingly.
     helper.toggleFacetRefinement("category", facet).search();
   };
 
@@ -32,7 +32,6 @@ class FacetList extends Component {
 
     return (
       <div className="facetlist-container">
-        <h1>FacetList</h1>
         {facets.length > 0 ? this.renderCategories(facets) : ""}
       </div>
     );
