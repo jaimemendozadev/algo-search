@@ -12,10 +12,11 @@ class Search extends Component {
 
   checkInput = () => {
     const { searchTerm } = this.state;
+    const searchLength = searchTerm.length;
 
-    if (searchTerm == defaultState.searchTerm) {
+    if (searchTerm == defaultState.searchTerm || searchLength > 0) {
       this.setState({ searchTerm: "" });
-    } else if (searchTerm.length === 0) {
+    } else if (searchLength === 0) {
       this.setState(defaultState);
     }
   };
