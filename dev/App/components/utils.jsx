@@ -22,6 +22,6 @@ export const displayCurrentSetting = (hideDropdown, sortBy) => {
   );
 };
 
-export const setDropdownClass = hideDropdown => {
-  return `btn-dropdown ${hideDropdown ? "hideDropdown" : ""}`;
+export const hideElement = hideElement => {
+  return hideElement ? "hideElement" : "";
 };

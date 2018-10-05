@@ -1,5 +1,5 @@
 import { Component, render } from "inferno";
-import { setDropdownClass, displayCurrentSetting } from "./utils.jsx";
+import { hideElement, displayCurrentSetting } from "./utils.jsx";
 
 const defaultState = {
   hideDropdown: true,
@@ -16,6 +16,14 @@ class SortBy extends Component {
     const { hideDropdown } = this.state;
 
     this.setState({ hideDropdown: !hideDropdown });
+  };
+
+  resetDropdown = () => {
+    const { helper } = this.props;
+    // Fix hardcoded value
+    this.setState(defaultState, () =>
+      helper.setIndex("app_store_index").search()
+    );
   };
 
   handleTabClick = index => {
@@ -37,6 +45,7 @@ class SortBy extends Component {
 
   render() {
     const { hideDropdown, sortBy } = this.state;
+
     return (
       <div className="sortby-container">
         <div onClick={this.toggleDropdown} className="sortby-header-container">
@@ -45,7 +54,14 @@ class SortBy extends Component {
           {displayCurrentSetting(hideDropdown, sortBy)}
         </div>
 
-        <div className={setDropdownClass(hideDropdown)}>
+        <div
+          className={`sortby-reset ${hideElement(!hideDropdown)}`}
+          onClick={this.resetDropdown}
+        >
+          Reset SortBy Filter
+        </div>
+
+        <div className={`btn-dropdown ${hideElement(hideDropdown)}`}>
           <div onClick={() => this.handleTabClick("Asc. Rank")} className="btn">
             <span>Asc. Rank</span>
           </div>

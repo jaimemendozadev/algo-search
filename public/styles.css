@@ -54,6 +54,13 @@ header {
 
 .sortby-container {
   position: relative; }
+  .sortby-container .sortby-reset {
+    position: absolute;
+    margin-top: 10px;
+    font-size: 1em;
+    width: 50%; }
+    .sortby-container .sortby-reset:hover {
+      text-decoration: underline; }
   .sortby-container .sortby-header-container {
     border-top: 1px solid black;
     border-right: 1px solid black;
@@ -101,7 +108,7 @@ header {
       justify-content: flex-start; }
       .sortby-container .btn-dropdown .btn span {
         margin-left: 1em; }
-  .sortby-container .hideDropdown {
+  .sortby-container .hideElement {
     display: none; }
 
 .app-container {

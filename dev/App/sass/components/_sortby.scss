@@ -11,6 +11,17 @@
 .sortby-container {
   position: relative;
 
+  .sortby-reset {
+    position: absolute;
+    margin-top: 10px;
+    font-size: 1em;
+    width: 50%;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .sortby-header-container {
     border-top: 1px solid black;
 
@@ -78,7 +89,7 @@
     }
   }
 
-  .hideDropdown {
+  .hideElement {
     display: none;
   }
 }

@@ -15,6 +15,8 @@ class Search extends Component {
   makeAPICall = searchTerm => {
     const { helper, MakeAlgoliaSearchRequest } = this.props;
 
+    console.log("making API Call with searchTerm ", searchTerm);
+
     helper.setQuery(searchTerm).search();
     MakeAlgoliaSearchRequest();
   };
