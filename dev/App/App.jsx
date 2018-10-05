@@ -5,12 +5,12 @@ import SortBy from "./components/SortBy.jsx";
 import ResultsView from "./components/ResultsView.jsx";
 import FacetList from "./components/FacetList.jsx";
 import Header from "./components/Header.jsx";
-import { setHitsAndCategories } from "./services/redux/actions.js";
+import { setHitsCategoriesAppStatus } from "./services/redux/actions.js";
 import styles from "./sass/styles.scss";
 
 class App extends Component {
   componentDidMount = () => {
-    const { helper, SetHitsAndCategories } = this.props;
+    const { helper, SetHitsCategoriesAppStatus } = this.props;
 
     helper.on("result", content => {
       const facetValues = content.getFacetValues("category");
@@ -22,15 +22,16 @@ class App extends Component {
 
       // on App componentDidMount, we setup helper to listen for "results"
       // on "results" event, we'll get new hits and facet category values
+      // will also turn app status to hasStarted
 
-      SetHitsAndCategories(content.hits, facetValues);
+      SetHitsCategoriesAppStatus(content.hits, facetValues);
     });
 
     this.setState({ helper });
   };
 
   render() {
-    const { client, helper, hits } = this.props;
+    const { client, helper } = this.props;
     return (
       <div className="app-container">
         <div className="header-search-sort-container">
@@ -54,6 +55,6 @@ class App extends Component {
 export default connect(
   null,
   {
-    SetHitsAndCategories: setHitsAndCategories
+    SetHitsCategoriesAppStatus: setHitsCategoriesAppStatus
   }
 )(App);

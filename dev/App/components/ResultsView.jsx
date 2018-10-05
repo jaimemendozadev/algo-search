@@ -1,8 +1,13 @@
 import { connect } from "inferno-redux";
+import Spinner from "./Spinner.jsx";
 import ErrorMessage from "./ErrorMessage.jsx";
 import ResultCard from "./ResultCard.jsx";
 
-const ResultsView = ({ hits }) => {
+const ResultsView = ({ hits, appStarted }) => {
+  if (appStarted === false) {
+    return <Spinner />;
+  }
+
   if (hits.length === 0) {
     return (
       <ErrorMessage
@@ -20,8 +25,11 @@ const ResultsView = ({ hits }) => {
   );
 };
 
-const mapStateToProps = ({ searchResults }) => {
-  return { hits: searchResults.hits };
+const mapStateToProps = ({ searchResults, appStatus }) => {
+  return {
+    hits: searchResults.hits,
+    appStarted: appStatus.appStarted
+  };
 };
 
 export default connect(
