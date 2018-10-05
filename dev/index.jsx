@@ -22,9 +22,9 @@ const client = algoliasearch(
 
 const helper = algoliasearchHelper(client, indexName, helperOptions);
 
-helper.search();
-
 initDevTools();
+
+helper.search();
 
 inferno.render(
   <Provider store={store}>

@@ -1,4 +1,6 @@
 import { Component, render } from "inferno";
+import { connect } from "inferno-redux";
+import { makeAlgoliaSearchRequest } from "../services/redux/actions";
 
 const defaultState = {
   searchTerm: "TYPE TO SEARCH"
@@ -9,6 +11,13 @@ class Search extends Component {
     super(props);
     this.state = defaultState;
   }
+
+  makeAPICall = searchTerm => {
+    const { helper, MakeAlgoliaSearchRequest } = this.props;
+
+    helper.setQuery(searchTerm).search();
+    MakeAlgoliaSearchRequest();
+  };
 
   checkInput = () => {
     const { searchTerm } = this.state;
@@ -22,16 +31,13 @@ class Search extends Component {
   };
 
   handleFormChange = event => {
-    const { helper } = this.props;
     const searchTerm = event.target.value;
 
-    // On submit, we fire helper.setQuery and
-    // helper listens for result in App componentDidMount
     this.setState(
       {
         searchTerm
       },
-      () => helper.setQuery(searchTerm).search()
+      () => this.makeAPICall(searchTerm)
     );
   };
 
@@ -39,9 +45,11 @@ class Search extends Component {
     event.preventDefault();
 
     const { searchTerm } = this.state;
-    const { helper } = this.props;
 
-    this.setState(defaultState, () => helper.setQuery(searchTerm).search());
+    // On submit, we fire helper.setQuery and
+    // helper listens for result in App componentDidMount
+
+    this.setState(defaultState, () => this.makeAPICall(searchTerm));
   };
 
   render() {
@@ -62,4 +70,7 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default connect(
+  null,
+  { MakeAlgoliaSearchRequest: makeAlgoliaSearchRequest }
+)(Search);

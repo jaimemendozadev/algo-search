@@ -3,8 +3,10 @@ import Spinner from "./Spinner.jsx";
 import ErrorMessage from "./ErrorMessage.jsx";
 import ResultCard from "./ResultCard.jsx";
 
-const ResultsView = ({ hits, appStarted }) => {
-  if (appStarted === false) {
+const ResultsView = ({ hits, appStatus }) => {
+  const { appStarted, fetchingData } = appStatus;
+  console.log("fetchingData is ", fetchingData);
+  if (appStarted === false || fetchingData === true) {
     return <Spinner />;
   }
 
@@ -28,7 +30,7 @@ const ResultsView = ({ hits, appStarted }) => {
 const mapStateToProps = ({ searchResults, appStatus }) => {
   return {
     hits: searchResults.hits,
-    appStarted: appStatus.appStarted
+    appStatus
   };
 };
 
