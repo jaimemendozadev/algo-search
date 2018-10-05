@@ -30,13 +30,13 @@ body {
     https://stackoverflow.com/questions/42234855/is-it-possible-to-draw-a-partial-circle-outline-in-css-open-ring-shape  
   */
 header {
-  margin-top: 3em;
-  text-align: center; }
+  margin: 1em 0 1.5em 0;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold; }
   header img {
     height: 100px;
     width: 100px; }
-  header h1, header h2 {
-    font-size: 2.3em; }
 
 .search-bar-container {
   display: flex;

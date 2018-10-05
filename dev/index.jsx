@@ -12,7 +12,7 @@ const store = createStore(rootReducer);
 const indexName = "app_store_index";
 const helperOptions = {
   facets: ["category"],
-  hitsPerPage: 200
+  hitsPerPage: 30
 };
 
 const client = algoliasearch(
