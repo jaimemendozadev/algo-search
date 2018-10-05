@@ -1,6 +1,9 @@
 import { Component, render } from "inferno";
 import { connect } from "inferno-redux";
-import { makeAlgoliaSearchRequest } from "../services/redux/actions";
+import {
+  makeAlgoliaSearchRequest,
+  resetSearchFormReducer
+} from "../services/redux/actions";
 
 const defaultState = {
   searchTerm: "TYPE TO SEARCH"
@@ -54,6 +57,13 @@ class Search extends Component {
     this.setState(defaultState, () => this.makeAPICall(searchTerm));
   };
 
+  resetTheForm = resetForm => {
+    const { ResetSearchFormReducer } = this.props;
+    if (resetForm === true) {
+      this.setState(defaultState, () => ResetSearchFormReducer());
+    }
+  };
+
   render() {
     const { searchTerm } = this.state;
     return (
@@ -72,7 +82,14 @@ class Search extends Component {
   }
 }
 
+const mapStateToProps = ({ searchForm }) => {
+  return { resetForm: searchForm.resetForm };
+};
+
 export default connect(
-  null,
-  { MakeAlgoliaSearchRequest: makeAlgoliaSearchRequest }
+  mapStateToProps,
+  {
+    MakeAlgoliaSearchRequest: makeAlgoliaSearchRequest,
+    ResetSearchFormReducer: resetSearchFormReducer
+  }
 )(Search);

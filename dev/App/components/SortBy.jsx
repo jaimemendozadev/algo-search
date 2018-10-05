@@ -21,8 +21,13 @@ class SortBy extends Component {
   resetDropdown = () => {
     const { helper } = this.props;
     // Fix hardcoded value
+
+    // ToDo: 1) reset query in helper, 2) reset value in Search form
     this.setState(defaultState, () =>
-      helper.setIndex("app_store_index").search()
+      helper
+        .setIndex("app_store_index")
+        .setQuery("")
+        .search()
     );
   };
 
