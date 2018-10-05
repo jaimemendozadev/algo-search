@@ -110,6 +110,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./dev/App/components/ErrorMessage.jsx":
+/*!*********************************************!*\
+  !*** ./dev/App/components/ErrorMessage.jsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar ErrorMessage = function ErrorMessage(_ref) {\n  var msg = _ref.msg;\n  return (0, _inferno.createVNode)(1, \"div\", \"error-message\", (0, _inferno.createVNode)(1, \"h1\", null, msg, 0), 2);\n};\n\nexports.default = ErrorMessage;\n\n//# sourceURL=webpack:///./dev/App/components/ErrorMessage.jsx?");
+
+/***/ }),
+
 /***/ "./dev/App/components/FacetList.jsx":
 /*!******************************************!*\
   !*** ./dev/App/components/FacetList.jsx ***!
@@ -154,7 +166,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _infernoRedux = __webpack_require__(/*! inferno-redux */ \"./node_modules/inferno-redux/dist/index.esm.js\");\n\nvar _Spinner = __webpack_require__(/*! ./Spinner.jsx */ \"./dev/App/components/Spinner.jsx\");\n\nvar _Spinner2 = _interopRequireDefault(_Spinner);\n\nvar _ResultCard = __webpack_require__(/*! ./ResultCard.jsx */ \"./dev/App/components/ResultCard.jsx\");\n\nvar _ResultCard2 = _interopRequireDefault(_ResultCard);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar ResultsView = function ResultsView(_ref) {\n  var hits = _ref.hits;\n\n  if (hits.length === 0) {\n    return (0, _inferno.createComponentVNode)(2, _Spinner2.default);\n  }\n  return (0, _inferno.createVNode)(1, \"div\", \"results-view-container\", hits.map(function (result) {\n    var name = result._highlightResult.name.value;\n    return (0, _inferno.createComponentVNode)(2, _ResultCard2.default, {\n      \"name\": name,\n      \"result\": result\n    }, result.objectID);\n  }), 0);\n};\n\nvar mapStateToProps = function mapStateToProps(_ref2) {\n  var searchResults = _ref2.searchResults;\n\n  return { hits: searchResults.hits };\n};\n\nexports.default = (0, _infernoRedux.connect)(mapStateToProps, null)(ResultsView);\n\n//# sourceURL=webpack:///./dev/App/components/ResultsView.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _infernoRedux = __webpack_require__(/*! inferno-redux */ \"./node_modules/inferno-redux/dist/index.esm.js\");\n\nvar _ErrorMessage = __webpack_require__(/*! ./ErrorMessage.jsx */ \"./dev/App/components/ErrorMessage.jsx\");\n\nvar _ErrorMessage2 = _interopRequireDefault(_ErrorMessage);\n\nvar _ResultCard = __webpack_require__(/*! ./ResultCard.jsx */ \"./dev/App/components/ResultCard.jsx\");\n\nvar _ResultCard2 = _interopRequireDefault(_ResultCard);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar ResultsView = function ResultsView(_ref) {\n  var hits = _ref.hits;\n\n  if (hits.length === 0) {\n    return (0, _inferno.createComponentVNode)(2, _ErrorMessage2.default, {\n      \"msg\": \"There were no matching results. Please try a different search.\"\n    });\n  }\n  return (0, _inferno.createVNode)(1, \"div\", \"results-view-container\", hits.map(function (result) {\n    var name = result._highlightResult.name.value;\n    return (0, _inferno.createComponentVNode)(2, _ResultCard2.default, {\n      \"name\": name,\n      \"result\": result\n    }, result.objectID);\n  }), 0);\n};\n\nvar mapStateToProps = function mapStateToProps(_ref2) {\n  var searchResults = _ref2.searchResults;\n\n  return { hits: searchResults.hits };\n};\n\nexports.default = (0, _infernoRedux.connect)(mapStateToProps, null)(ResultsView);\n\n//# sourceURL=webpack:///./dev/App/components/ResultsView.jsx?");
 
 /***/ }),
 
@@ -179,18 +191,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 "use strict";
 eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ \"./node_modules/babel-runtime/core-js/object/get-prototype-of.js\");\n\nvar _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);\n\nvar _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ \"./node_modules/babel-runtime/helpers/classCallCheck.js\");\n\nvar _classCallCheck3 = _interopRequireDefault(_classCallCheck2);\n\nvar _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ \"./node_modules/babel-runtime/helpers/createClass.js\");\n\nvar _createClass3 = _interopRequireDefault(_createClass2);\n\nvar _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ \"./node_modules/babel-runtime/helpers/possibleConstructorReturn.js\");\n\nvar _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);\n\nvar _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ \"./node_modules/babel-runtime/helpers/inherits.js\");\n\nvar _inherits3 = _interopRequireDefault(_inherits2);\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _utils = __webpack_require__(/*! ./utils.jsx */ \"./dev/App/components/utils.jsx\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar defaultState = {\n  hideDropdown: true,\n  sortBy: null\n};\n\nvar SortBy = function (_Component) {\n  (0, _inherits3.default)(SortBy, _Component);\n\n  function SortBy(props) {\n    (0, _classCallCheck3.default)(this, SortBy);\n\n    var _this = (0, _possibleConstructorReturn3.default)(this, (SortBy.__proto__ || (0, _getPrototypeOf2.default)(SortBy)).call(this, props));\n\n    _this.toggleDropdown = function () {\n      var hideDropdown = _this.state.hideDropdown;\n\n\n      _this.setState({ hideDropdown: !hideDropdown });\n    };\n\n    _this.handleTabClick = function (index) {\n      var _this$props = _this.props,\n          helper = _this$props.helper,\n          hideDropdown = _this$props.hideDropdown;\n\n\n      var indexKey = {\n        \"Asc. Rank\": \"app_store_index_rank_asc\",\n        \"Desc. Rank\": \"app_store_index_rank_desc\"\n      };\n\n      _this.setState({\n        sortBy: index,\n        hideDropdown: !hideDropdown\n      }, function () {\n        return helper.setIndex(indexKey[index]).search();\n      });\n    };\n\n    _this.state = defaultState;\n    return _this;\n  }\n\n  (0, _createClass3.default)(SortBy, [{\n    key: \"render\",\n    value: function render() {\n      var _this2 = this;\n\n      var _state = this.state,\n          hideDropdown = _state.hideDropdown,\n          sortBy = _state.sortBy;\n\n      return (0, _inferno.createVNode)(1, \"div\", \"sortby-container\", [(0, _inferno.createVNode)(1, \"div\", \"sortby-header-container\", [(0, _inferno.createVNode)(1, \"div\", \"sortby-header\", (0, _inferno.createTextVNode)(\"SortBy\"), 2), (0, _utils.displayCurrentSetting)(hideDropdown, sortBy)], 0, {\n        \"onClick\": this.toggleDropdown\n      }), (0, _inferno.createVNode)(1, \"div\", (0, _utils.setDropdownClass)(hideDropdown), [(0, _inferno.createVNode)(1, \"div\", \"btn\", (0, _inferno.createVNode)(1, \"span\", null, (0, _inferno.createTextVNode)(\"Asc. Rank\"), 2), 2, {\n        \"onClick\": function onClick() {\n          return _this2.handleTabClick(\"Asc. Rank\");\n        }\n      }), (0, _inferno.createVNode)(1, \"div\", \"btn\", (0, _inferno.createVNode)(1, \"span\", null, (0, _inferno.createTextVNode)(\"Desc. Rank\"), 2), 2, {\n        \"onClick\": function onClick() {\n          return _this2.handleTabClick(\"Desc. Rank\");\n        }\n      })], 4)], 4);\n    }\n  }]);\n  return SortBy;\n}(_inferno.Component);\n\nexports.default = SortBy;\n\n//# sourceURL=webpack:///./dev/App/components/SortBy.jsx?");
-
-/***/ }),
-
-/***/ "./dev/App/components/Spinner.jsx":
-/*!****************************************!*\
-  !*** ./dev/App/components/Spinner.jsx ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar Spinner = function Spinner() {\n  return (0, _inferno.createVNode)(1, \"div\", \"spinner\");\n};\n\nexports.default = Spinner;\n\n//# sourceURL=webpack:///./dev/App/components/Spinner.jsx?");
 
 /***/ }),
 

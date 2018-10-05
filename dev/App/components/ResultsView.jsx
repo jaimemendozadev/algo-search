@@ -1,10 +1,14 @@
 import { connect } from "inferno-redux";
-import Spinner from "./Spinner.jsx";
+import ErrorMessage from "./ErrorMessage.jsx";
 import ResultCard from "./ResultCard.jsx";
 
 const ResultsView = ({ hits }) => {
   if (hits.length === 0) {
-    return <Spinner />;
+    return (
+      <ErrorMessage
+        msg={"There were no matching results. Please try a different search."}
+      />
+    );
   }
   return (
     <div className="results-view-container">
