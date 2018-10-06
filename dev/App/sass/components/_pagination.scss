@@ -1,10 +1,11 @@
 .pagination-container {
-  width: 80%;
+  width: 60%;
   height: 50px;
   border: 1px solid black;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  margin-bottom: 5em;
 
   .pagination-first,
   .pagination-previous,

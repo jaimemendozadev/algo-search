@@ -6,12 +6,18 @@
   min-height: 100vh;
 }
 
+.header-search-sort-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .search-sort-container {
   display: flex;
   width: 90%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3em;
+  margin-bottom: 5em;
 
 }
 

@@ -38,12 +38,12 @@ class App extends Component {
         <div className="header-search-sort-container">
           <Header />
 
+          <Pagination />
+
           <div className="search-sort-container">
             <Search client={client} helper={helper} />
             <SortBy helper={helper} />
           </div>
-
-          <Pagination />
         </div>
 
         <div className="results-facetlist-container">
