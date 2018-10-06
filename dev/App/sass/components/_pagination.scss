@@ -1,22 +1,55 @@
 .pagination-container {
-  width: 60%;
+  width: 80%;
   height: 50px;
   border: 1px solid black;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 5em;
+
+  &:nth-child(2) {
+    border-right: none;
+  }
 
   .pagination-first,
   .pagination-previous,
   .pagination-next,
   .pagination-last {
     width: 10%;
+    height: 50px;
+    border-right: 1px solid black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .pagination-tiles {
-    width: 60%;
+
+
+  .pagination-tiles-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 60%;
+
+    .pagination-tiles {
+      &:first-child {
+        border-left: none;    
+      }
+
+      &:last-child {
+        border-right: 1px solid black;
+      }
+
+
+      border: 1px solid black;
+      border-right: none;
+      
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
   }
 }

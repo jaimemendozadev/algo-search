@@ -20,7 +20,7 @@ class Pagination extends Component {
     let start = minimum;
 
     while (start <= high) {
-      tiles.push(<div className="">{start}</div>);
+      tiles.push(<div className="pagination-tiles">{start}</div>);
       start += 1;
     }
 
@@ -52,7 +52,9 @@ class Pagination extends Component {
       <div className="pagination-container">
         <div className="pagination-first">First</div>
         <div className="pagination-previous">Previous</div>
-        <div className="pagination-tiles">{this.renderPageTiles()}</div>
+        <div className="pagination-tiles-container">
+          {this.renderPageTiles()}
+        </div>
 
         <div className="pagination-next">Next</div>
         <div className="pagination-last">Last</div>
