@@ -15,8 +15,9 @@ class Pagination extends Component {
   }
 
   handleClick = pageNumber => {
-    console.log("inside handleClick");
     const { helper } = this.props;
+
+    console.log("page number is ", pageNumber);
 
     this.setState(
       {
@@ -31,7 +32,7 @@ class Pagination extends Component {
     const [minimum, high] = calculatePagination(page, nbPages);
 
     this.setState({
-      currentPage: page + 1,
+      currentPage: page,
       minimum,
       high
     });
@@ -42,10 +43,10 @@ class Pagination extends Component {
     const tiles = [];
 
     let start = minimum;
-
     // Even if we only have one page of data, we'll create one tile
     // Pagination won't appear if both minimum/high are 0
-    while (start <= high) {
+
+    for (let start = minimum; start <= high; start++) {
       tiles.push(
         <div
           key={`tile-${start}`}
@@ -54,12 +55,10 @@ class Pagination extends Component {
             start === currentPage ? "current-tile" : ""
           }`}
         >
-          {start}
+          {start + 1}
         </div>
       );
-      start += 1;
     }
-
     return tiles;
   };
 
