@@ -28,13 +28,14 @@ export const hideElement = hideElement => {
 
 // calculatePagination currently only works for
 // indexes with less than 101 pages of results
+// page starts at 0 index
 export const calculatePagination = (page, nbPages) => {
-  const ActualPage = page;
+  const ActualPage = page + 1;
   const TotalPages = nbPages;
 
   // Edge Case: when we only have one page of data
-  if (page === 0 && ActualPage === TotalPages) {
-    return [0, 0];
+  if (page === 0 && TotalPages === 1) {
+    return [0, 1];
   }
 
   let minimum;
@@ -42,38 +43,24 @@ export const calculatePagination = (page, nbPages) => {
 
   // When we're on pages 1 - 10, adjust high based
   // on how many of pages we can query.
-  if (ActualPage <= 9) {
-    high = TotalPages >= 9 ? 9 : TotalPages;
+  if (page <= 9) {
+    high = TotalPages >= 10 ? 10 : TotalPages;
     minimum = 0;
 
     return [minimum, high];
   }
 
-  if (ActualPage >= 10 && ActualPage <= 99) {
-    // Ideally, baseNumber * 10 should give you the minimum,
-    // and (baseNumber + 1) * 10 should give you the high
+  if (page >= 10 && page <= 99) {
+    // Whatever the page number is, divide / 10
+    const baseNumber = Math.floor(page / 10);
 
-    const baseNumber = ActualPage === 99 ? 9 : Math.floor(ActualPage / 10);
+    // Calculate the high & make sure we don't
+    // go over the totalPages
+    let high = (baseNumber + 1) * 10;
+    high = high <= TotalPages ? high : TotalPages + 1;
 
-    // First check if possibleHigh doesn't go over TotalPages
-    let possibleHigh = (baseNumber + 1) * 10;
+    let minimum = baseNumber * 10;
 
-    if (possibleHigh <= TotalPages) {
-      high = possibleHigh;
-      minimum = baseNumber * 10;
-
-      return [minimum, high];
-
-      // When we go over TotalPages, TotalPages is the high
-    } else {
-      high = TotalPages;
-
-      //Check that possibleMin doesn't go below 0
-      let possibleMinimum = TotalPages - 10;
-
-      minimum = possibleMinimum >= 0 ? possibleMinimum : 0;
-
-      return [minimum, high];
-    }
+    return [minimum, high];
   }
 };

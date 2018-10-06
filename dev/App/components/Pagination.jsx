@@ -4,6 +4,7 @@ import { calculatePagination } from "./utils.jsx";
 
 const defaultState = {
   currentPage: null,
+  totalPages: null,
   minimum: null,
   high: null
 };
@@ -14,7 +15,7 @@ class Pagination extends Component {
     this.state = defaultState;
   }
 
-  handleClick = pageNumber => {
+  handlePageClick = pageNumber => {
     const { helper } = this.props;
 
     console.log("page number is ", pageNumber);
@@ -27,12 +28,24 @@ class Pagination extends Component {
     );
   };
 
+  handleButtonClick = buttonType => {
+    const { currentPage, totalPages } = this.state;
+
+    const nextPage = currentPage + 1;
+
+    // First Previous Next Last
+    if (buttonType === "Next" && !nextPage > totalPages) {
+      this.handlePageClick(nextPage);
+    }
+  };
+
   setPaginationState = () => {
     const { page, nbPages } = this.props;
     const [minimum, high] = calculatePagination(page, nbPages);
 
     this.setState({
       currentPage: page,
+      totalPages: nbPages,
       minimum,
       high
     });
@@ -46,11 +59,11 @@ class Pagination extends Component {
     // Even if we only have one page of data, we'll create one tile
     // Pagination won't appear if both minimum/high are 0
 
-    for (let start = minimum; start <= high; start++) {
+    for (let start = minimum; start < high; start++) {
       tiles.push(
         <div
           key={`tile-${start}`}
-          onClick={() => this.handleClick(start)}
+          onClick={() => this.handlePageClick(start)}
           className={`pagination-tiles ${
             start === currentPage ? "current-tile" : ""
           }`}
@@ -83,7 +96,12 @@ class Pagination extends Component {
           {this.renderPageTiles()}
         </div>
 
-        <div className="pagination-next">Next</div>
+        <div
+          onClick={() => this.handleButtonClick("Next")}
+          className="pagination-next"
+        >
+          Next
+        </div>
         <div className="pagination-last">Last</div>
       </div>
     );
