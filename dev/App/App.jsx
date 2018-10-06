@@ -38,7 +38,7 @@ class App extends Component {
         <div className="header-search-sort-container">
           <Header />
 
-          <Pagination />
+          <Pagination helper={helper} />
 
           <div className="search-sort-container">
             <Search client={client} helper={helper} />

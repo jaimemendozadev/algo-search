@@ -73,6 +73,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center; }
+    .pagination-tiles-container .pagination-tiles.current-tile {
+      background-color: #2571ED;
+      color: white; }
 
 .search-bar-container {
   display: flex;

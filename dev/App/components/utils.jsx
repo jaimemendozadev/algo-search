@@ -29,12 +29,12 @@ export const hideElement = hideElement => {
 // calculatePagination currently only works for
 // indexes with less than 101 pages of results
 export const calculatePagination = (page, nbPages) => {
-  const ActualPage = page + 1;
+  const ActualPage = page;
   const TotalPages = nbPages;
 
   // Edge Case: when we only have one page of data
   if (page === 0 && ActualPage === TotalPages) {
-    return [1, 1];
+    return [0, 0];
   }
 
   let minimum;
@@ -42,29 +42,25 @@ export const calculatePagination = (page, nbPages) => {
 
   // When we're on pages 1 - 10, adjust high based
   // on how many of pages we can query.
-  if (ActualPage <= 10) {
-    high = TotalPages >= 10 ? 10 : TotalPages;
-    minimum = 1;
-    console.log("nbPages is ", nbPages);
-    console.log("inside ActualPage <= 10");
-    console.log("minimum is ", minimum);
-    console.log("high is ", high);
+  if (ActualPage <= 9) {
+    high = TotalPages >= 9 ? 9 : TotalPages;
+    minimum = 0;
 
     return [minimum, high];
   }
 
-  if (ActualPage >= 11 && ActualPage <= 100) {
+  if (ActualPage >= 10 && ActualPage <= 99) {
     // Ideally, baseNumber * 10 should give you the minimum,
     // and (baseNumber + 1) * 10 should give you the high
 
-    const baseNumber = ActualPage === 100 ? 9 : Math.floor(ActualPage / 10);
+    const baseNumber = ActualPage === 99 ? 9 : Math.floor(ActualPage / 10);
 
     // First check if possibleHigh doesn't go over TotalPages
     let possibleHigh = (baseNumber + 1) * 10;
 
     if (possibleHigh <= TotalPages) {
       high = possibleHigh;
-      minimum = baseNumber * 10 + 1;
+      minimum = baseNumber * 10;
 
       return [minimum, high];
 
@@ -75,7 +71,7 @@ export const calculatePagination = (page, nbPages) => {
       //Check that possibleMin doesn't go below 0
       let possibleMinimum = TotalPages - 10;
 
-      minimum = possibleMinimum >= 1 ? possibleMinimum : 1;
+      minimum = possibleMinimum >= 0 ? possibleMinimum : 0;
 
       return [minimum, high];
     }
