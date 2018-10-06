@@ -1,8 +1,9 @@
 import { GOT_ALGOLIA_DATA } from "../../types";
 
 const defaultPaginationState = {
-  nbPages: 0,
-  page: 0
+  nbPages: null,
+  page: null,
+  paginationSet: false
 };
 
 export const pagination = (state = defaultPaginationState, action) => {

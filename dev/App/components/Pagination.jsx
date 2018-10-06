@@ -13,23 +13,9 @@ class Pagination extends Component {
     super(props);
     this.state = defaultState;
   }
-  renderPageTiles = () => {
-    const { minimum, high } = this.state;
-    const tiles = [];
 
-    let start = minimum;
-
-    while (start <= high) {
-      tiles.push(<div className="pagination-tiles">{start}</div>);
-      start += 1;
-    }
-
-    return tiles;
-  };
-
-  componentDidMount = () => {
+  setPaginationState = () => {
     const { page, nbPages } = this.props;
-
     const [minimum, high] = calculatePagination(page, nbPages);
 
     this.setState({
@@ -39,19 +25,37 @@ class Pagination extends Component {
     });
   };
 
+  renderPageTiles = () => {
+    const { minimum, high } = this.state;
+    const tiles = [];
+
+    let start = minimum;
+
+    // Even if we only have one page of data, we'll create one tile
+    // Pagination won't appear if both minimum/high are 0
+    while (start <= high) {
+      tiles.push(<div className="pagination-tiles">{start}</div>);
+      start += 1;
+    }
+
+    return tiles;
+  };
+
   render() {
-    console.log("this.props inside Pagination ", this.props);
-    console.log("this.state inside Pagination ", this.state);
+    const { paginationSet } = this.props;
     const { minimum, high } = this.state;
 
-    if (!minimum && !high) {
+    if (paginationSet === false) {
       return null;
+    } else if (minimum === null && high === null) {
+      this.setPaginationState();
     }
 
     return (
       <div className="pagination-container">
         <div className="pagination-first">First</div>
         <div className="pagination-previous">Previous</div>
+
         <div className="pagination-tiles-container">
           {this.renderPageTiles()}
         </div>
@@ -66,7 +70,8 @@ class Pagination extends Component {
 const mapStateToProps = ({ pagination }) => {
   return {
     nbPages: pagination.nbPages,
-    page: pagination.page
+    page: pagination.page,
+    paginationSet: pagination.paginationSet
   };
 };
 export default connect(

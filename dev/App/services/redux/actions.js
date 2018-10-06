@@ -18,7 +18,8 @@ export const setAlgoliaFetchedData = (content, facets) => {
 
   const pagination = {
     nbPages: content.nbPages,
-    page: content.page
+    page: content.page,
+    paginationSet: true
   };
 
   return {
