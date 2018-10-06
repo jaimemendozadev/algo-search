@@ -5,8 +5,6 @@ import {
   RESET_SEARCH_FORM_REDUCER
 } from "./types.js";
 
-import { calculatePagination } from "./utils";
-
 //setAlgoliaFetchedData is workhorse action that updates majority of store
 export const setAlgoliaFetchedData = (content, facets) => {
   const appStatus = {
@@ -18,16 +16,9 @@ export const setAlgoliaFetchedData = (content, facets) => {
     hits: content.hits
   };
 
-  const [minimum, high] = calculatePagination(content.page, content.nbPages);
-
   const pagination = {
     nbPages: content.nbPages,
-    page: content.page,
-
-    pagination: {
-      minimum,
-      high
-    }
+    page: content.page
   };
 
   return {

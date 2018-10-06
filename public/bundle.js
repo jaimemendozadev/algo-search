@@ -154,7 +154,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ \"./node_modules/babel-runtime/core-js/object/get-prototype-of.js\");\n\nvar _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);\n\nvar _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ \"./node_modules/babel-runtime/helpers/classCallCheck.js\");\n\nvar _classCallCheck3 = _interopRequireDefault(_classCallCheck2);\n\nvar _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ \"./node_modules/babel-runtime/helpers/createClass.js\");\n\nvar _createClass3 = _interopRequireDefault(_createClass2);\n\nvar _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ \"./node_modules/babel-runtime/helpers/possibleConstructorReturn.js\");\n\nvar _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);\n\nvar _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ \"./node_modules/babel-runtime/helpers/inherits.js\");\n\nvar _inherits3 = _interopRequireDefault(_inherits2);\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _infernoRedux = __webpack_require__(/*! inferno-redux */ \"./node_modules/inferno-redux/dist/index.esm.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar defaultState = {\n  currentPage: null,\n  minimum: null,\n  high: null\n};\n\nvar Pagination = function (_Component) {\n  (0, _inherits3.default)(Pagination, _Component);\n\n  function Pagination(props) {\n    (0, _classCallCheck3.default)(this, Pagination);\n\n    var _this = (0, _possibleConstructorReturn3.default)(this, (Pagination.__proto__ || (0, _getPrototypeOf2.default)(Pagination)).call(this, props));\n\n    _this.renderPageTiles = function () {};\n\n    _this.state = defaultState;\n    return _this;\n  }\n\n  (0, _createClass3.default)(Pagination, [{\n    key: \"render\",\n    value: function render() {\n      console.log(\"this.props inside Pagination \", this.props);\n      return (0, _inferno.createVNode)(1, \"div\", null, (0, _inferno.createVNode)(1, \"h1\", null, (0, _inferno.createTextVNode)(\"Pagination\"), 2), 2);\n    }\n  }]);\n  return Pagination;\n}(_inferno.Component);\n\nvar mapStateToProps = function mapStateToProps(_ref) {\n  var pagination = _ref.pagination;\n\n  return {\n    nbPages: pagination.nbPages,\n    page: pagination.page,\n    minimum: pagination.pagination.minimum,\n    high: pagination.pagination.high\n  };\n};\nexports.default = (0, _infernoRedux.connect)(mapStateToProps, null)(Pagination);\n\n//# sourceURL=webpack:///./dev/App/components/Pagination.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _slicedToArray2 = __webpack_require__(/*! babel-runtime/helpers/slicedToArray */ \"./node_modules/babel-runtime/helpers/slicedToArray.js\");\n\nvar _slicedToArray3 = _interopRequireDefault(_slicedToArray2);\n\nvar _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ \"./node_modules/babel-runtime/core-js/object/get-prototype-of.js\");\n\nvar _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);\n\nvar _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ \"./node_modules/babel-runtime/helpers/classCallCheck.js\");\n\nvar _classCallCheck3 = _interopRequireDefault(_classCallCheck2);\n\nvar _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ \"./node_modules/babel-runtime/helpers/createClass.js\");\n\nvar _createClass3 = _interopRequireDefault(_createClass2);\n\nvar _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ \"./node_modules/babel-runtime/helpers/possibleConstructorReturn.js\");\n\nvar _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);\n\nvar _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ \"./node_modules/babel-runtime/helpers/inherits.js\");\n\nvar _inherits3 = _interopRequireDefault(_inherits2);\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _infernoRedux = __webpack_require__(/*! inferno-redux */ \"./node_modules/inferno-redux/dist/index.esm.js\");\n\nvar _utils = __webpack_require__(/*! ./utils.jsx */ \"./dev/App/components/utils.jsx\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar defaultState = {\n  currentPage: null,\n  minimum: null,\n  high: null\n};\n\nvar Pagination = function (_Component) {\n  (0, _inherits3.default)(Pagination, _Component);\n\n  function Pagination(props) {\n    (0, _classCallCheck3.default)(this, Pagination);\n\n    var _this = (0, _possibleConstructorReturn3.default)(this, (Pagination.__proto__ || (0, _getPrototypeOf2.default)(Pagination)).call(this, props));\n\n    _this.renderPageTiles = function () {};\n\n    _this.componentDidMount = function () {\n      var _this$props = _this.props,\n          page = _this$props.page,\n          nbPages = _this$props.nbPages;\n\n      var _calculatePagination = (0, _utils.calculatePagination)(page, nbPages),\n          _calculatePagination2 = (0, _slicedToArray3.default)(_calculatePagination, 2),\n          minimum = _calculatePagination2[0],\n          high = _calculatePagination2[1];\n\n      _this.setState({\n        currentPage: page + 1,\n        minimum: minimum,\n        high: high\n      });\n    };\n\n    _this.state = defaultState;\n    return _this;\n  }\n\n  (0, _createClass3.default)(Pagination, [{\n    key: \"render\",\n    value: function render() {\n      console.log(\"this.props inside Pagination \", this.props);\n      console.log(\"this.state inside Pagination \", this.state);\n      var _state = this.state,\n          minimum = _state.minimum,\n          high = _state.high;\n\n\n      if (!minimum && !high) {\n        return null;\n      }\n\n      return (0, _inferno.createVNode)(1, \"div\", \"pagination-container\", [(0, _inferno.createVNode)(1, \"h1\", null, (0, _inferno.createTextVNode)(\"Pagination\"), 2), (0, _inferno.createVNode)(1, \"div\", null, [(0, _inferno.createVNode)(1, \"div\", null, (0, _inferno.createTextVNode)(\"First\"), 2), (0, _inferno.createVNode)(1, \"div\", null, (0, _inferno.createTextVNode)(\"Previous\"), 2), (0, _inferno.createVNode)(1, \"div\", null, (0, _inferno.createTextVNode)(\"Next\"), 2), (0, _inferno.createVNode)(1, \"div\", null, (0, _inferno.createTextVNode)(\"Last\"), 2)], 4)], 4);\n    }\n  }]);\n  return Pagination;\n}(_inferno.Component);\n\nvar mapStateToProps = function mapStateToProps(_ref) {\n  var pagination = _ref.pagination;\n\n  return {\n    nbPages: pagination.nbPages,\n    page: pagination.page\n  };\n};\nexports.default = (0, _infernoRedux.connect)(mapStateToProps, null)(Pagination);\n\n//# sourceURL=webpack:///./dev/App/components/Pagination.jsx?");
 
 /***/ }),
 
@@ -270,7 +270,7 @@ eval("module.exports = __webpack_require__.p + \"9211a0cbc645f0b5f1995a0b669076e
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.hideElement = exports.displayCurrentSetting = exports.getImg = undefined;\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _downArrow = __webpack_require__(/*! ./assets/down-arrow.svg */ \"./dev/App/components/assets/down-arrow.svg\");\n\nvar _downArrow2 = _interopRequireDefault(_downArrow);\n\nvar _upArrow = __webpack_require__(/*! ./assets/up-arrow.svg */ \"./dev/App/components/assets/up-arrow.svg\");\n\nvar _upArrow2 = _interopRequireDefault(_upArrow);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar getImg = exports.getImg = function getImg(hideDropdown) {\n  return hideDropdown === true ? (0, _inferno.createVNode)(1, \"img\", null, null, 1, {\n    \"src\": _downArrow2.default\n  }) : (0, _inferno.createVNode)(1, \"img\", \"up-arrow\", null, 1, {\n    \"src\": _upArrow2.default\n  });\n};\n\nvar displayCurrentSetting = exports.displayCurrentSetting = function displayCurrentSetting(hideDropdown, sortBy) {\n  return (0, _inferno.createVNode)(1, \"span\", \"sortby-current-setting \" + (sortBy === null ? \"null-current-setting\" : \"asc-desc-setting\"), [sortBy, getImg(hideDropdown)], 0);\n};\n\nvar hideElement = exports.hideElement = function hideElement(_hideElement) {\n  return _hideElement ? \"hideElement\" : \"\";\n};\n\n//# sourceURL=webpack:///./dev/App/components/utils.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.calculatePagination = exports.hideElement = exports.displayCurrentSetting = exports.getImg = undefined;\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _downArrow = __webpack_require__(/*! ./assets/down-arrow.svg */ \"./dev/App/components/assets/down-arrow.svg\");\n\nvar _downArrow2 = _interopRequireDefault(_downArrow);\n\nvar _upArrow = __webpack_require__(/*! ./assets/up-arrow.svg */ \"./dev/App/components/assets/up-arrow.svg\");\n\nvar _upArrow2 = _interopRequireDefault(_upArrow);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar getImg = exports.getImg = function getImg(hideDropdown) {\n  return hideDropdown === true ? (0, _inferno.createVNode)(1, \"img\", null, null, 1, {\n    \"src\": _downArrow2.default\n  }) : (0, _inferno.createVNode)(1, \"img\", \"up-arrow\", null, 1, {\n    \"src\": _upArrow2.default\n  });\n};\n\nvar displayCurrentSetting = exports.displayCurrentSetting = function displayCurrentSetting(hideDropdown, sortBy) {\n  return (0, _inferno.createVNode)(1, \"span\", \"sortby-current-setting \" + (sortBy === null ? \"null-current-setting\" : \"asc-desc-setting\"), [sortBy, getImg(hideDropdown)], 0);\n};\n\nvar hideElement = exports.hideElement = function hideElement(_hideElement) {\n  return _hideElement ? \"hideElement\" : \"\";\n};\n\n// calculatePagination currently only works for\n// indexes with less than 101 pages of results\nvar calculatePagination = exports.calculatePagination = function calculatePagination(page, nbPages) {\n  var ActualPage = page + 1;\n  var TotalPages = nbPages + 1;\n\n  var minimum = void 0;\n  var high = void 0;\n\n  if (ActualPage <= 10) {\n    minimum = 1;\n    high = 10;\n\n    return [minimum, high];\n  }\n\n  if (ActualPage >= 11 && ActualPage <= 100) {\n    // Ideally, baseNumber * 10 should give you the minimum,\n    // and (baseNumber + 1) * 10 should give you the high\n\n    var baseNumber = ActualPage === 100 ? 9 : Math.floor(ActualPage / 10);\n\n    // First check if possibleHigh doesn't go over TotalPages\n    var possibleHigh = (baseNumber + 1) * 10;\n\n    if (possibleHigh <= TotalPages) {\n      high = possibleHigh;\n      minimum = baseNumber * 10 + 1;\n\n      return [minimum, high];\n\n      // When we go over TotalPages, TotalPages is the high\n    } else {\n      high = TotalPages;\n\n      //Check that possibleMin doesn't go below 0\n      var possibleMinimum = TotalPages - 10;\n\n      minimum = possibleMinimum >= 1 ? possibleMinimum : 1;\n\n      return [minimum, high];\n    }\n  }\n};\n\n//# sourceURL=webpack:///./dev/App/components/utils.jsx?");
 
 /***/ }),
 
@@ -293,7 +293,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./dev/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setAlgoliaFetchedData\", function() { return setAlgoliaFetchedData; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeAlgoliaSearchRequest\", function() { return makeAlgoliaSearchRequest; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resetTheForm\", function() { return resetTheForm; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resetSearchFormReducer\", function() { return resetSearchFormReducer; });\n/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ \"./dev/App/services/redux/types.js\");\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ \"./dev/App/services/redux/utils.js\");\n\n\n\n\n//setAlgoliaFetchedData is workhorse action that updates majority of store\nconst setAlgoliaFetchedData = (content, facets) => {\n  const appStatus = {\n    appStarted: true,\n    fetchingData: false\n  };\n\n  const searchResults = {\n    hits: content.hits\n  };\n\n  const [minimum, high] = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[\"calculatePagination\"])(content.page, content.nbPages);\n\n  const pagination = {\n    nbPages: content.nbPages,\n    page: content.page,\n\n    pagination: {\n      minimum,\n      high\n    }\n  };\n\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_ALGOLIA_DATA\"],\n    payload: {\n      searchResults,\n      facets,\n      appStatus,\n      pagination\n    }\n  };\n};\n\nconst makeAlgoliaSearchRequest = () => {\n  const payload = { fetchingData: true };\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"MAKE_ALGOLIA_SEARCH_REQ\"],\n    payload\n  };\n};\n\nconst resetTheForm = () => {\n  const payload = {\n    resetForm: true\n  };\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"RESET_THE_FORM\"],\n    payload\n  };\n};\n\nconst resetSearchFormReducer = () => {\n  return { type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"RESET_SEARCH_FORM_REDUCER\"] };\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/actions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setAlgoliaFetchedData\", function() { return setAlgoliaFetchedData; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeAlgoliaSearchRequest\", function() { return makeAlgoliaSearchRequest; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resetTheForm\", function() { return resetTheForm; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resetSearchFormReducer\", function() { return resetSearchFormReducer; });\n/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ \"./dev/App/services/redux/types.js\");\n\n\n//setAlgoliaFetchedData is workhorse action that updates majority of store\nconst setAlgoliaFetchedData = (content, facets) => {\n  const appStatus = {\n    appStarted: true,\n    fetchingData: false\n  };\n\n  const searchResults = {\n    hits: content.hits\n  };\n\n  const pagination = {\n    nbPages: content.nbPages,\n    page: content.page\n  };\n\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"GOT_ALGOLIA_DATA\"],\n    payload: {\n      searchResults,\n      facets,\n      appStatus,\n      pagination\n    }\n  };\n};\n\nconst makeAlgoliaSearchRequest = () => {\n  const payload = { fetchingData: true };\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"MAKE_ALGOLIA_SEARCH_REQ\"],\n    payload\n  };\n};\n\nconst resetTheForm = () => {\n  const payload = {\n    resetForm: true\n  };\n  return {\n    type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"RESET_THE_FORM\"],\n    payload\n  };\n};\n\nconst resetSearchFormReducer = () => {\n  return { type: _types_js__WEBPACK_IMPORTED_MODULE_0__[\"RESET_SEARCH_FORM_REDUCER\"] };\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/actions.js?");
 
 /***/ }),
 
@@ -353,7 +353,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sea
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"pagination\", function() { return pagination; });\n/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../types */ \"./dev/App/services/redux/types.js\");\n\n\nconst defaultPaginationState = {\n  nbPages: 0,\n  page: 0,\n  pagination: {\n    minimum: 0,\n    high: 0\n  }\n};\n\nconst pagination = (state = defaultPaginationState, action) => {\n  switch (action.type) {\n    case _types__WEBPACK_IMPORTED_MODULE_0__[\"GOT_ALGOLIA_DATA\"]:\n      return Object.assign({}, state, action.payload.pagination);\n  }\n\n  return state;\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/reducers/pagination/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"pagination\", function() { return pagination; });\n/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../types */ \"./dev/App/services/redux/types.js\");\n\n\nconst defaultPaginationState = {\n  nbPages: 0,\n  page: 0\n};\n\nconst pagination = (state = defaultPaginationState, action) => {\n  switch (action.type) {\n    case _types__WEBPACK_IMPORTED_MODULE_0__[\"GOT_ALGOLIA_DATA\"]:\n      return Object.assign({}, state, action.payload.pagination);\n  }\n\n  return state;\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/reducers/pagination/index.js?");
 
 /***/ }),
 
@@ -390,18 +390,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GOT_ALGOLIA_DATA\", function() { return GOT_ALGOLIA_DATA; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"MAKE_ALGOLIA_SEARCH_REQ\", function() { return MAKE_ALGOLIA_SEARCH_REQ; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RESET_THE_FORM\", function() { return RESET_THE_FORM; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RESET_SEARCH_FORM_REDUCER\", function() { return RESET_SEARCH_FORM_REDUCER; });\nconst GOT_ALGOLIA_DATA = \"GOT_ALGOLIA_DATA\";\n\nconst MAKE_ALGOLIA_SEARCH_REQ = \"MAKE_ALGOLIA_SEARCH_REQ\";\n\nconst RESET_THE_FORM = \"RESET_THE_FORM\";\n\nconst RESET_SEARCH_FORM_REDUCER = \"RESET_SEARCH_FORM_REDUCER\";\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/types.js?");
-
-/***/ }),
-
-/***/ "./dev/App/services/redux/utils.js":
-/*!*****************************************!*\
-  !*** ./dev/App/services/redux/utils.js ***!
-  \*****************************************/
-/*! exports provided: calculatePagination */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"calculatePagination\", function() { return calculatePagination; });\nconst calculatePagination = (page, nbPages) => {\n  const ActualPage = page + 1;\n  const TotalPages = nbPages + 1;\n\n  let minimum;\n  let high;\n\n  if (ActualPage <= 10) {\n    minimum = 1;\n    high = 10;\n\n    return [minimum, high];\n  }\n\n  if (ActualPage >= 11 && ActualPage <= 100) {\n    // Ideally, baseNumber * 10 should give you the minimum,\n    // and (baseNumber + 1) * 10 should give you the high\n\n    const baseNumber = ActualPage === 100 ? 9 : Math.floor(ActualPage / 10);\n\n    // First check if possibleHigh doesn't go over TotalPages\n    let possibleHigh = (baseNumber + 1) * 10;\n\n    if (possibleHigh <= TotalPages) {\n      high = possibleHigh;\n      minimum = baseNumber * 10 + 1;\n\n      return [minimum, high];\n\n      // When we go over TotalPages, TotalPages is the high\n    } else {\n      high = TotalPages;\n\n      //Check that possibleMin doesn't go below 0\n      let possibleMinimum = TotalPages - 10;\n\n      minimum = possibleMinimum >= 1 ? possibleMinimum : 1;\n\n      return [minimum, high];\n    }\n  }\n};\n\n\n//# sourceURL=webpack:///./dev/App/services/redux/utils.js?");
 
 /***/ }),
 
@@ -845,6 +833,28 @@ eval("\n\nmodule.exports = '3.30.0';\n\n\n//# sourceURL=webpack:///./node_module
 
 /***/ }),
 
+/***/ "./node_modules/babel-runtime/core-js/get-iterator.js":
+/*!************************************************************!*\
+  !*** ./node_modules/babel-runtime/core-js/get-iterator.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = { \"default\": __webpack_require__(/*! core-js/library/fn/get-iterator */ \"./node_modules/core-js/library/fn/get-iterator.js\"), __esModule: true };\n\n//# sourceURL=webpack:///./node_modules/babel-runtime/core-js/get-iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/babel-runtime/core-js/is-iterable.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/babel-runtime/core-js/is-iterable.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = { \"default\": __webpack_require__(/*! core-js/library/fn/is-iterable */ \"./node_modules/core-js/library/fn/is-iterable.js\"), __esModule: true };\n\n//# sourceURL=webpack:///./node_modules/babel-runtime/core-js/is-iterable.js?");
+
+/***/ }),
+
 /***/ "./node_modules/babel-runtime/core-js/object/create.js":
 /*!*************************************************************!*\
   !*** ./node_modules/babel-runtime/core-js/object/create.js ***!
@@ -959,6 +969,18 @@ eval("\n\nexports.__esModule = true;\n\nvar _typeof2 = __webpack_require__(/*! .
 
 /***/ }),
 
+/***/ "./node_modules/babel-runtime/helpers/slicedToArray.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/babel-runtime/helpers/slicedToArray.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nexports.__esModule = true;\n\nvar _isIterable2 = __webpack_require__(/*! ../core-js/is-iterable */ \"./node_modules/babel-runtime/core-js/is-iterable.js\");\n\nvar _isIterable3 = _interopRequireDefault(_isIterable2);\n\nvar _getIterator2 = __webpack_require__(/*! ../core-js/get-iterator */ \"./node_modules/babel-runtime/core-js/get-iterator.js\");\n\nvar _getIterator3 = _interopRequireDefault(_getIterator2);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = function () {\n  function sliceIterator(arr, i) {\n    var _arr = [];\n    var _n = true;\n    var _d = false;\n    var _e = undefined;\n\n    try {\n      for (var _i = (0, _getIterator3.default)(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {\n        _arr.push(_s.value);\n\n        if (i && _arr.length === i) break;\n      }\n    } catch (err) {\n      _d = true;\n      _e = err;\n    } finally {\n      try {\n        if (!_n && _i[\"return\"]) _i[\"return\"]();\n      } finally {\n        if (_d) throw _e;\n      }\n    }\n\n    return _arr;\n  }\n\n  return function (arr, i) {\n    if (Array.isArray(arr)) {\n      return arr;\n    } else if ((0, _isIterable3.default)(Object(arr))) {\n      return sliceIterator(arr, i);\n    } else {\n      throw new TypeError(\"Invalid attempt to destructure non-iterable instance\");\n    }\n  };\n}();\n\n//# sourceURL=webpack:///./node_modules/babel-runtime/helpers/slicedToArray.js?");
+
+/***/ }),
+
 /***/ "./node_modules/babel-runtime/helpers/typeof.js":
 /*!******************************************************!*\
   !*** ./node_modules/babel-runtime/helpers/typeof.js ***!
@@ -968,6 +990,28 @@ eval("\n\nexports.__esModule = true;\n\nvar _typeof2 = __webpack_require__(/*! .
 
 "use strict";
 eval("\n\nexports.__esModule = true;\n\nvar _iterator = __webpack_require__(/*! ../core-js/symbol/iterator */ \"./node_modules/babel-runtime/core-js/symbol/iterator.js\");\n\nvar _iterator2 = _interopRequireDefault(_iterator);\n\nvar _symbol = __webpack_require__(/*! ../core-js/symbol */ \"./node_modules/babel-runtime/core-js/symbol.js\");\n\nvar _symbol2 = _interopRequireDefault(_symbol);\n\nvar _typeof = typeof _symbol2.default === \"function\" && typeof _iterator2.default === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === \"function\" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? \"symbol\" : typeof obj; };\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = typeof _symbol2.default === \"function\" && _typeof(_iterator2.default) === \"symbol\" ? function (obj) {\n  return typeof obj === \"undefined\" ? \"undefined\" : _typeof(obj);\n} : function (obj) {\n  return obj && typeof _symbol2.default === \"function\" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? \"symbol\" : typeof obj === \"undefined\" ? \"undefined\" : _typeof(obj);\n};\n\n//# sourceURL=webpack:///./node_modules/babel-runtime/helpers/typeof.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/get-iterator.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/get-iterator.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ../modules/web.dom.iterable */ \"./node_modules/core-js/library/modules/web.dom.iterable.js\");\n__webpack_require__(/*! ../modules/es6.string.iterator */ \"./node_modules/core-js/library/modules/es6.string.iterator.js\");\nmodule.exports = __webpack_require__(/*! ../modules/core.get-iterator */ \"./node_modules/core-js/library/modules/core.get-iterator.js\");\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/fn/get-iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/is-iterable.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/is-iterable.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ../modules/web.dom.iterable */ \"./node_modules/core-js/library/modules/web.dom.iterable.js\");\n__webpack_require__(/*! ../modules/es6.string.iterator */ \"./node_modules/core-js/library/modules/es6.string.iterator.js\");\nmodule.exports = __webpack_require__(/*! ../modules/core.is-iterable */ \"./node_modules/core-js/library/modules/core.is-iterable.js\");\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/fn/is-iterable.js?");
 
 /***/ }),
 
@@ -1078,6 +1122,17 @@ eval("var isObject = __webpack_require__(/*! ./_is-object */ \"./node_modules/co
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// false -> Array#indexOf\n// true  -> Array#includes\nvar toIObject = __webpack_require__(/*! ./_to-iobject */ \"./node_modules/core-js/library/modules/_to-iobject.js\");\nvar toLength = __webpack_require__(/*! ./_to-length */ \"./node_modules/core-js/library/modules/_to-length.js\");\nvar toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ \"./node_modules/core-js/library/modules/_to-absolute-index.js\");\nmodule.exports = function (IS_INCLUDES) {\n  return function ($this, el, fromIndex) {\n    var O = toIObject($this);\n    var length = toLength(O.length);\n    var index = toAbsoluteIndex(fromIndex, length);\n    var value;\n    // Array#includes uses SameValueZero equality algorithm\n    // eslint-disable-next-line no-self-compare\n    if (IS_INCLUDES && el != el) while (length > index) {\n      value = O[index++];\n      // eslint-disable-next-line no-self-compare\n      if (value != value) return true;\n    // Array#indexOf ignores holes, Array#includes - not\n    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {\n      if (O[index] === el) return IS_INCLUDES || index || 0;\n    } return !IS_INCLUDES && -1;\n  };\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/_array-includes.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_classof.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_classof.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// getting tag from 19.1.3.6 Object.prototype.toString()\nvar cof = __webpack_require__(/*! ./_cof */ \"./node_modules/core-js/library/modules/_cof.js\");\nvar TAG = __webpack_require__(/*! ./_wks */ \"./node_modules/core-js/library/modules/_wks.js\")('toStringTag');\n// ES3 wrong here\nvar ARG = cof(function () { return arguments; }()) == 'Arguments';\n\n// fallback for IE11 Script Access Denied error\nvar tryGet = function (it, key) {\n  try {\n    return it[key];\n  } catch (e) { /* empty */ }\n};\n\nmodule.exports = function (it) {\n  var O, T, B;\n  return it === undefined ? 'Undefined' : it === null ? 'Null'\n    // @@toStringTag case\n    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T\n    // builtinTag case\n    : ARG ? cof(O)\n    // ES3 arguments fallback\n    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/_classof.js?");
 
 /***/ }),
 
@@ -1663,6 +1718,39 @@ eval("exports.f = __webpack_require__(/*! ./_wks */ \"./node_modules/core-js/lib
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var store = __webpack_require__(/*! ./_shared */ \"./node_modules/core-js/library/modules/_shared.js\")('wks');\nvar uid = __webpack_require__(/*! ./_uid */ \"./node_modules/core-js/library/modules/_uid.js\");\nvar Symbol = __webpack_require__(/*! ./_global */ \"./node_modules/core-js/library/modules/_global.js\").Symbol;\nvar USE_SYMBOL = typeof Symbol == 'function';\n\nvar $exports = module.exports = function (name) {\n  return store[name] || (store[name] =\n    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));\n};\n\n$exports.store = store;\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/_wks.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/core.get-iterator-method.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/core.get-iterator-method.js ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var classof = __webpack_require__(/*! ./_classof */ \"./node_modules/core-js/library/modules/_classof.js\");\nvar ITERATOR = __webpack_require__(/*! ./_wks */ \"./node_modules/core-js/library/modules/_wks.js\")('iterator');\nvar Iterators = __webpack_require__(/*! ./_iterators */ \"./node_modules/core-js/library/modules/_iterators.js\");\nmodule.exports = __webpack_require__(/*! ./_core */ \"./node_modules/core-js/library/modules/_core.js\").getIteratorMethod = function (it) {\n  if (it != undefined) return it[ITERATOR]\n    || it['@@iterator']\n    || Iterators[classof(it)];\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/core.get-iterator-method.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/core.get-iterator.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/core.get-iterator.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var anObject = __webpack_require__(/*! ./_an-object */ \"./node_modules/core-js/library/modules/_an-object.js\");\nvar get = __webpack_require__(/*! ./core.get-iterator-method */ \"./node_modules/core-js/library/modules/core.get-iterator-method.js\");\nmodule.exports = __webpack_require__(/*! ./_core */ \"./node_modules/core-js/library/modules/_core.js\").getIterator = function (it) {\n  var iterFn = get(it);\n  if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');\n  return anObject(iterFn.call(it));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/core.get-iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/core.is-iterable.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/core.is-iterable.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var classof = __webpack_require__(/*! ./_classof */ \"./node_modules/core-js/library/modules/_classof.js\");\nvar ITERATOR = __webpack_require__(/*! ./_wks */ \"./node_modules/core-js/library/modules/_wks.js\")('iterator');\nvar Iterators = __webpack_require__(/*! ./_iterators */ \"./node_modules/core-js/library/modules/_iterators.js\");\nmodule.exports = __webpack_require__(/*! ./_core */ \"./node_modules/core-js/library/modules/_core.js\").isIterable = function (it) {\n  var O = Object(it);\n  return O[ITERATOR] !== undefined\n    || '@@iterator' in O\n    // eslint-disable-next-line no-prototype-builtins\n    || Iterators.hasOwnProperty(classof(O));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/library/modules/core.is-iterable.js?");
 
 /***/ }),
 
