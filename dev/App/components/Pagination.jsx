@@ -13,7 +13,19 @@ class Pagination extends Component {
     super(props);
     this.state = defaultState;
   }
-  renderPageTiles = () => {};
+  renderPageTiles = () => {
+    const { minimum, high } = this.state;
+    const tiles = [];
+
+    let start = minimum;
+
+    while (start <= high) {
+      tiles.push(<div className="">{start}</div>);
+      start += 1;
+    }
+
+    return tiles;
+  };
 
   componentDidMount = () => {
     const { page, nbPages } = this.props;
@@ -38,14 +50,12 @@ class Pagination extends Component {
 
     return (
       <div className="pagination-container">
-        <h1>Pagination</h1>
-        <div>
-          <div>First</div>
-          <div>Previous</div>
+        <div className="pagination-first">First</div>
+        <div className="pagination-previous">Previous</div>
+        <div className="pagination-tiles">{this.renderPageTiles()}</div>
 
-          <div>Next</div>
-          <div>Last</div>
-        </div>
+        <div className="pagination-next">Next</div>
+        <div className="pagination-last">Last</div>
       </div>
     );
   }

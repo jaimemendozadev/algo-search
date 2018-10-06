@@ -1,0 +1,21 @@
+.pagination-container {
+  width: 80%;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .pagination-first,
+  .pagination-previous,
+  .pagination-next,
+  .pagination-last {
+    width: 10%;
+  }
+
+  .pagination-tiles {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+  }
+}

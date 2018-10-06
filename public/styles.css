@@ -38,6 +38,23 @@ header {
     height: 100px;
     width: 100px; }
 
+.pagination-container {
+  width: 80%;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  .pagination-container .pagination-first,
+  .pagination-container .pagination-previous,
+  .pagination-container .pagination-next,
+  .pagination-container .pagination-last {
+    width: 10%; }
+  .pagination-container .pagination-tiles {
+    width: 60%;
+    display: flex;
+    justify-content: space-around; }
+
 .search-bar-container {
   display: flex;
   flex-direction: column;
