@@ -9,7 +9,10 @@ const ResultCard = ({ result, name }) => {
 
   return (
     <div className="result-card">
-      <div dangerouslySetInnerHTML={createMarkup(result.category)} />
+      <div className="category-rank-container">
+        <div dangerouslySetInnerHTML={createMarkup(result.category)} />
+        <div>Rank: {result.rank}</div>
+      </div>
 
       <div className="img-name-container">
         <a href={result.link} target="_blank" rel="noopener noreferrer">
