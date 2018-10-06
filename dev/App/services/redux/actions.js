@@ -5,16 +5,22 @@ import {
   RESET_SEARCH_FORM_REDUCER
 } from "./types.js";
 
-export const setHitsCategoriesAppStatus = (hits, facets) => {
+export const setAlgoliaFetchedData = (content, facets) => {
   const appStatus = {
     appStarted: true,
     fetchingData: false
   };
 
+  const searchResults = {
+    hits: content.hits,
+    nbPages: content.nbPages,
+    page: content.page
+  };
+
   return {
     type: GOT_HITS_AND_FACETS,
     payload: {
-      hits,
+      searchResults,
       facets,
       appStatus
     }

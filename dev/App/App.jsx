@@ -5,12 +5,13 @@ import SortBy from "./components/SortBy.jsx";
 import ResultsView from "./components/ResultsView.jsx";
 import FacetList from "./components/FacetList.jsx";
 import Header from "./components/Header.jsx";
-import { setHitsCategoriesAppStatus } from "./services/redux/actions.js";
+import Pagination from "./components/Pagination.jsx";
+import { setAlgoliaFetchedData } from "./services/redux/actions.js";
 import styles from "./sass/styles.scss";
 
 class App extends Component {
   componentDidMount = () => {
-    const { helper, SetHitsCategoriesAppStatus } = this.props;
+    const { helper, SetAlgoliaFetchedData } = this.props;
 
     helper.on("result", content => {
       const facetValues = content.getFacetValues("category");
@@ -24,7 +25,7 @@ class App extends Component {
       // on "results" event, we'll get new hits and facet category values
       // will also turn app status to hasStarted
 
-      SetHitsCategoriesAppStatus(content.hits, facetValues);
+      SetAlgoliaFetchedData(content, facetValues);
     });
 
     this.setState({ helper });
@@ -41,6 +42,8 @@ class App extends Component {
             <Search client={client} helper={helper} />
             <SortBy helper={helper} />
           </div>
+
+          <Pagination />
         </div>
 
         <div className="results-facetlist-container">
@@ -55,6 +58,6 @@ class App extends Component {
 export default connect(
   null,
   {
-    SetHitsCategoriesAppStatus: setHitsCategoriesAppStatus
+    SetAlgoliaFetchedData: setAlgoliaFetchedData
   }
 )(App);
