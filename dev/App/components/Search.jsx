@@ -18,8 +18,6 @@ class Search extends Component {
   makeAPICall = searchTerm => {
     const { helper, MakeAlgoliaSearchRequest } = this.props;
 
-    console.log("making API Call with searchTerm ", searchTerm);
-
     helper.setQuery(searchTerm).search();
     MakeAlgoliaSearchRequest();
   };
@@ -59,6 +57,7 @@ class Search extends Component {
 
   resetTheForm = resetForm => {
     const { ResetSearchFormReducer } = this.props;
+
     if (resetForm === true) {
       this.setState(defaultState, () => ResetSearchFormReducer());
     }
@@ -66,6 +65,10 @@ class Search extends Component {
 
   render() {
     const { searchTerm } = this.state;
+    const { resetForm } = this.props;
+
+    this.resetTheForm(resetForm);
+
     return (
       <div className="search-bar-container">
         <form onSubmit={this.handleSubmit} className="searchForm">

@@ -1,5 +1,7 @@
 import { Component, render } from "inferno";
+import { connect } from "inferno-redux";
 import { hideElement, displayCurrentSetting } from "./utils.jsx";
+import { resetTheForm } from "../services/redux/actions";
 
 const defaultState = {
   hideDropdown: true,
@@ -19,16 +21,16 @@ class SortBy extends Component {
   };
 
   resetDropdown = () => {
-    const { helper } = this.props;
+    const { helper, ResetTheForm } = this.props;
     // Fix hardcoded value
 
-    // ToDo: 1) reset query in helper, 2) reset value in Search form
-    this.setState(defaultState, () =>
+    this.setState(defaultState, () => {
       helper
         .setIndex("app_store_index")
         .setQuery("")
-        .search()
-    );
+        .search();
+      ResetTheForm();
+    });
   };
 
   handleTabClick = index => {
@@ -82,4 +84,7 @@ class SortBy extends Component {
   }
 }
 
-export default SortBy;
+export default connect(
+  null,
+  { ResetTheForm: resetTheForm }
+)(SortBy);
