@@ -1,4 +1,4 @@
-import { GOT_HITS_AND_FACETS, MAKE_ALGOLIA_SEARCH_REQ } from "../../types.js";
+import { GOT_ALGOLIA_DATA, MAKE_ALGOLIA_SEARCH_REQ } from "../../types.js";
 
 const defaultAppStatusState = {
   appStarted: false,
@@ -7,7 +7,7 @@ const defaultAppStatusState = {
 
 export const appStatus = (state = defaultAppStatusState, action) => {
   switch (action.type) {
-    case GOT_HITS_AND_FACETS:
+    case GOT_ALGOLIA_DATA:
       return Object.assign({}, state, action.payload.appStatus);
     case MAKE_ALGOLIA_SEARCH_REQ:
       return Object.assign({}, state, action.payload);

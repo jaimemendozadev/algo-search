@@ -1,10 +1,13 @@
 import {
-  GOT_HITS_AND_FACETS,
+  GOT_ALGOLIA_DATA,
   MAKE_ALGOLIA_SEARCH_REQ,
   RESET_THE_FORM,
   RESET_SEARCH_FORM_REDUCER
 } from "./types.js";
 
+import { calculatePagination } from "./utils";
+
+//setAlgoliaFetchedData is workhorse action that updates majority of store
 export const setAlgoliaFetchedData = (content, facets) => {
   const appStatus = {
     appStarted: true,
@@ -12,17 +15,28 @@ export const setAlgoliaFetchedData = (content, facets) => {
   };
 
   const searchResults = {
-    hits: content.hits,
+    hits: content.hits
+  };
+
+  const [minimum, high] = calculatePagination(content.page, content.nbPages);
+
+  const pagination = {
     nbPages: content.nbPages,
-    page: content.page
+    page: content.page,
+
+    pagination: {
+      minimum,
+      high
+    }
   };
 
   return {
-    type: GOT_HITS_AND_FACETS,
+    type: GOT_ALGOLIA_DATA,
     payload: {
       searchResults,
       facets,
-      appStatus
+      appStatus,
+      pagination
     }
   };
 };

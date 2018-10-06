@@ -1,4 +1,5 @@
 import { Component, render } from "inferno";
+import { connect } from "inferno-redux";
 
 const defaultState = {
   currentPage: null,
@@ -14,6 +15,7 @@ class Pagination extends Component {
   renderPageTiles = () => {};
 
   render() {
+    console.log("this.props inside Pagination ", this.props);
     return (
       <div>
         <h1>Pagination</h1>
@@ -22,4 +24,15 @@ class Pagination extends Component {
   }
 }
 
-export default Pagination;
+const mapStateToProps = ({ pagination }) => {
+  return {
+    nbPages: pagination.nbPages,
+    page: pagination.page,
+    minimum: pagination.pagination.minimum,
+    high: pagination.pagination.high
+  };
+};
+export default connect(
+  mapStateToProps,
+  null
+)(Pagination);

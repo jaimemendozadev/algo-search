@@ -5,17 +5,6 @@ export const calculatePagination = (page, nbPages) => {
   let minimum;
   let high;
 
-  /*
-    
-    ActualPage = page + 1
-
-    if ActualPage <= 10, 
-    baseNumber is 1, because it's 1 - 10
-
-    if ActualPage >= 11 && <= 100
-    divide by 10 to get baseNumber
-    */
-
   if (ActualPage <= 10) {
     minimum = 1;
     high = 10;
@@ -24,19 +13,30 @@ export const calculatePagination = (page, nbPages) => {
   }
 
   if (ActualPage >= 11 && ActualPage <= 100) {
-    // baseNumber
-    const baseNumber = Math.floor(ActualPage / 10);
+    // Ideally, baseNumber * 10 should give you the minimum,
+    // and (baseNumber + 1) * 10 should give you the high
 
+    const baseNumber = ActualPage === 100 ? 9 : Math.floor(ActualPage / 10);
+
+    // First check if possibleHigh doesn't go over TotalPages
     let possibleHigh = (baseNumber + 1) * 10;
 
     if (possibleHigh <= TotalPages) {
       high = possibleHigh;
-      min = baseNumber * 10 + 1;
-    } else {
-      let possibleMin = TotalPages - 10;
+      minimum = baseNumber * 10 + 1;
 
+      return [minimum, high];
+
+      // When we go over TotalPages, TotalPages is the high
+    } else {
       high = TotalPages;
-      min = possibleMin >= 1 ? possibleMin : 1;
+
+      //Check that possibleMin doesn't go below 0
+      let possibleMinimum = TotalPages - 10;
+
+      minimum = possibleMinimum >= 1 ? possibleMinimum : 1;
+
+      return [minimum, high];
     }
   }
 };

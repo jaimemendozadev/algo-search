@@ -1,14 +1,12 @@
-import { GOT_HITS_AND_FACETS } from "../../types.js";
+import { GOT_ALGOLIA_DATA } from "../../types.js";
 
 const defaultSearchResultsState = {
-  hits: [],
-  nbPages: 0,
-  page: 0
+  hits: []
 };
 
 export const searchResults = (state = defaultSearchResultsState, action) => {
   switch (action.type) {
-    case GOT_HITS_AND_FACETS:
+    case GOT_ALGOLIA_DATA:
       return Object.assign({}, state, action.payload.searchResults);
   }
 

@@ -1,4 +1,4 @@
-import { GOT_HITS_AND_FACETS } from "../../types.js";
+import { GOT_ALGOLIA_DATA } from "../../types.js";
 
 const defaultFacetState = {
   facets: []
@@ -6,7 +6,7 @@ const defaultFacetState = {
 
 export const facetResults = (state = defaultFacetState, action) => {
   switch (action.type) {
-    case GOT_HITS_AND_FACETS:
+    case GOT_ALGOLIA_DATA:
       return Object.assign({}, state, { facets: action.payload.facets });
   }
 
