@@ -1,14 +1,9 @@
 const express = require("express");
 const Router = express.Router();
+const { addObjectToIndex, deleteObjectFromIndex } = require("./controllers");
 
-Router.post("/1/apps", (req, res) => {
-  console.log("req.body is ", req.body);
-  res.send("hit POST /api/1/apps");
-});
+Router.post("/1/apps", addObjectToIndex);
 
-Router.delete("/1/apps/:id", (req, res) => {
-  console.log("req.params.id is ", req.params.id);
-  res.send("hit DELETE /api/1/apps/:id");
-});
+Router.delete("/1/apps/:id", deleteObjectFromIndex);
 
 module.exports = Router;
