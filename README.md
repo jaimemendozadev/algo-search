@@ -69,11 +69,11 @@ After creating the `.env` and you fire up the app, the key value pairs in the fi
 
 ## Seeding Mock Data
 
-Now you're ready to seed your Algolia index.
+Now you're ready to seed your Algolia index. If you're curious, you can go to `seed/index.js` to see all the configuration settings for the Algolia Index.
 
 This project uses the [Yarn package manager](https://yarnpkg.com/en/). Go to the Yarn website to learn more about how to install the package manger on your computer.
 
-In the root of the app, use your terminal to run `$ yarn run seed` to seed the Algolia index.
+In the root of the app, use your terminal to run `$ yarn run seed` to seed the Algolia index. You should see a message in the terminal that says `Algolia Index has Seed Data!`.
 
 
 ## Starting the App
