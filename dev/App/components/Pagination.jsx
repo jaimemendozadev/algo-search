@@ -29,7 +29,17 @@ class Pagination extends Component {
     const lastPage = totalPages - 1;
 
     // First Previous Next Last
-    if (buttonType === "Next" && !nextPage > totalPages) {
+
+    if (buttonType === "First") {
+      this.handlePageClick(0);
+    }
+
+    if (buttonType === "Previous" && !(currentPage - 1 < 0)) {
+      console.log("inside Previous conditional");
+      this.handlePageClick(currentPage - 1);
+    }
+
+    if (buttonType === "Next" && !(nextPage >= totalPages)) {
       this.handlePageClick(nextPage);
     }
 
@@ -74,8 +84,18 @@ class Pagination extends Component {
 
     return (
       <div className="pagination-container">
-        <div className="pagination-first">First</div>
-        <div className="pagination-previous">Previous</div>
+        <div
+          onClick={() => this.handleButtonClick("First")}
+          className="pagination-first"
+        >
+          First
+        </div>
+        <div
+          onClick={() => this.handleButtonClick("Previous")}
+          className="pagination-previous"
+        >
+          Previous
+        </div>
 
         <div className="pagination-tiles-container">
           {this.renderPageTiles()}
