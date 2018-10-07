@@ -1,7 +1,7 @@
-const index = require("../../Algolia/");
+const index = require("../../Algolia");
 const { payloadMissingData } = require("./utils");
 
-const addObjectToIndex = (req, res) => {
+const addSingleObjectToIndex = async (req, res) => {
   try {
     const payload = req.body;
 
@@ -13,15 +13,23 @@ const addObjectToIndex = (req, res) => {
         message: "That data you sent is invalid. Please try again."
       });
     } else {
-      res.send("hit addObjectToIndex controller in POST /api/1/apps");
+      // Must convert Rank to Number for sorting
+      const convertedRank = +payload.rank;
+
+      payload.rank = convertedRank;
+
+      // addObject creates single object
+      // multiple object creation uses index.addObjects
+      const indexResult = await index.addObject(payload);
+
+      res.send(indexResult.objectID);
     }
-
-    // const convertedRank = +payload.rank;
-
-    // payload.rank = convertedRank;
-    // const indexResult = await index.addObjects(payload);
   } catch (error) {
     console.log("Error adding object to Algolia index ", error);
+    res.send({
+      error: true,
+      message: "That data you sent is invalid. Please try again."
+    });
   }
 };
 
@@ -31,6 +39,6 @@ const deleteObjectFromIndex = (req, res) => {
 };
 
 module.exports = {
-  addObjectToIndex,
+  addSingleObjectToIndex,
   deleteObjectFromIndex
 };

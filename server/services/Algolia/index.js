@@ -9,6 +9,4 @@ const {
 const client = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SECRET_SERVER_KEY);
 const index = client.initIndex(ALGOLIA_INDEX_NAME);
 
-module.exports = {
-  index
-};
+module.exports = index;
