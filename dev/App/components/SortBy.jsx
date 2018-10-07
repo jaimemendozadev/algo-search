@@ -30,6 +30,7 @@ class SortBy extends Component {
       helper
         .setIndex("app_store_index")
         .setQuery("")
+        .clearRefinements() // IMPORTANT: Resets FacetList
         .search();
       ResetTheForm();
     });
@@ -67,7 +68,7 @@ class SortBy extends Component {
           className={`sortby-reset ${hideElement(!hideDropdown)}`}
           onClick={this.resetDropdown}
         >
-          Reset SortBy Filter
+          Reset Filters
         </div>
 
         <div className={`btn-dropdown ${hideElement(hideDropdown)}`}>
