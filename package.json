@@ -14,7 +14,7 @@
       "eslint --fix ./dev/index.jsx",
       "git add"
     ],
-    "./dev/**/*.js": [
+    "./server/**/*.js": [
       "eslint --fix ./server/index.js",
       "git add"
     ]
