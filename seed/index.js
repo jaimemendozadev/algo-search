@@ -24,12 +24,20 @@ const seedAlgoliaIndex = async () => {
 
   app_store_index_rank_desc.setSettings({ ranking: ["desc(rank)"] });
 
+  app_store_index_rank_asc.setSettings({ attributesForFaceting: ["category"] });
+
+  app_store_index_rank_desc.setSettings({
+    attributesForFaceting: ["category"]
+  });
+
+  index.setSettings({
+    searchableAttributes: ["name", "category"]
+  });
+
+  index.setSettings({ attributesForFaceting: ["category"] });
+
   // Forward all Main Index settings to Asc/Desc Indexes
   index.setSettings(
-    { attributesForFaceting: ["category"] },
-    {
-      searchableAttributes: ["name", "category"]
-    },
     {
       replicas: [DESC_INDEX_NAME, ASC_INDEX_NAME]
     },
