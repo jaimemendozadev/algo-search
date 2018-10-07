@@ -1,4 +1,5 @@
 import PhoneIcon from "./assets/phone-icon.svg";
+import YellowStar from "./assets/yellow-star.svg";
 
 const createMarkup = name => {
   return { __html: name };
@@ -11,7 +12,9 @@ const ResultCard = ({ result, name }) => {
     <div className="result-card">
       <div className="category-rank-container">
         <div dangerouslySetInnerHTML={createMarkup(result.category)} />
-        <div>Rank: {result.rank}</div>
+        <div>
+          Rank: <img className="yellow-star" src={YellowStar} /> {result.rank}
+        </div>
       </div>
 
       <div className="img-name-container">

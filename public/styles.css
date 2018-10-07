@@ -230,6 +230,9 @@ header {
     border: 1px solid goldenrod; }
   .result-card .highlighted em {
     background-color: yellow; }
+  .result-card .yellow-star {
+    width: 20px;
+    height: 20px; }
   .result-card .img-name-container {
     display: flex;
     flex-direction: column;

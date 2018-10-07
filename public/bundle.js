@@ -166,7 +166,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _phoneIcon = __webpack_require__(/*! ./assets/phone-icon.svg */ \"./dev/App/components/assets/phone-icon.svg\");\n\nvar _phoneIcon2 = _interopRequireDefault(_phoneIcon);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar createMarkup = function createMarkup(name) {\n  return { __html: name };\n};\n\nvar ResultCard = function ResultCard(_ref) {\n  var result = _ref.result,\n      name = _ref.name;\n\n  var appName = name.length > 20 ? name.slice(0, 21) + \"...\" : name;\n\n  return (0, _inferno.createVNode)(1, \"div\", \"result-card\", [(0, _inferno.createVNode)(1, \"div\", \"category-rank-container\", [(0, _inferno.createVNode)(1, \"div\", null, null, 1, {\n    \"dangerouslySetInnerHTML\": createMarkup(result.category)\n  }), (0, _inferno.createVNode)(1, \"div\", null, [(0, _inferno.createTextVNode)(\"Rank: \"), result.rank], 0)], 4), (0, _inferno.createVNode)(1, \"div\", \"img-name-container\", [(0, _inferno.createVNode)(1, \"a\", null, (0, _inferno.createVNode)(1, \"img\", null, null, 1, {\n    \"src\": _phoneIcon2.default\n  }), 2, {\n    \"href\": result.link,\n    \"target\": \"_blank\",\n    \"rel\": \"noopener noreferrer\"\n  }), (0, _inferno.createVNode)(1, \"a\", \"highlighted\", null, 1, {\n    \"href\": result.link,\n    \"target\": \"_blank\",\n    \"rel\": \"noopener noreferrer\",\n    \"dangerouslySetInnerHTML\": createMarkup(appName)\n  })], 4)], 4);\n};\n\nexports.default = ResultCard;\n\n//# sourceURL=webpack:///./dev/App/components/ResultCard.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _inferno = __webpack_require__(/*! inferno */ \"./node_modules/inferno/index.esm.js\");\n\nvar _phoneIcon = __webpack_require__(/*! ./assets/phone-icon.svg */ \"./dev/App/components/assets/phone-icon.svg\");\n\nvar _phoneIcon2 = _interopRequireDefault(_phoneIcon);\n\nvar _yellowStar = __webpack_require__(/*! ./assets/yellow-star.svg */ \"./dev/App/components/assets/yellow-star.svg\");\n\nvar _yellowStar2 = _interopRequireDefault(_yellowStar);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar createMarkup = function createMarkup(name) {\n  return { __html: name };\n};\n\nvar ResultCard = function ResultCard(_ref) {\n  var result = _ref.result,\n      name = _ref.name;\n\n  var appName = name.length > 20 ? name.slice(0, 21) + \"...\" : name;\n\n  return (0, _inferno.createVNode)(1, \"div\", \"result-card\", [(0, _inferno.createVNode)(1, \"div\", \"category-rank-container\", [(0, _inferno.createVNode)(1, \"div\", null, null, 1, {\n    \"dangerouslySetInnerHTML\": createMarkup(result.category)\n  }), (0, _inferno.createVNode)(1, \"div\", null, [(0, _inferno.createTextVNode)(\"Rank: \"), (0, _inferno.createVNode)(1, \"img\", \"yellow-star\", null, 1, {\n    \"src\": _yellowStar2.default\n  }), (0, _inferno.createTextVNode)(\" \"), result.rank], 0)], 4), (0, _inferno.createVNode)(1, \"div\", \"img-name-container\", [(0, _inferno.createVNode)(1, \"a\", null, (0, _inferno.createVNode)(1, \"img\", null, null, 1, {\n    \"src\": _phoneIcon2.default\n  }), 2, {\n    \"href\": result.link,\n    \"target\": \"_blank\",\n    \"rel\": \"noopener noreferrer\"\n  }), (0, _inferno.createVNode)(1, \"a\", \"highlighted\", null, 1, {\n    \"href\": result.link,\n    \"target\": \"_blank\",\n    \"rel\": \"noopener noreferrer\",\n    \"dangerouslySetInnerHTML\": createMarkup(appName)\n  })], 4)], 4);\n};\n\nexports.default = ResultCard;\n\n//# sourceURL=webpack:///./dev/App/components/ResultCard.jsx?");
 
 /***/ }),
 
@@ -259,6 +259,17 @@ eval("module.exports = __webpack_require__.p + \"c2128b33fca9103471e83a67529bbf4
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"9211a0cbc645f0b5f1995a0b669076e3.svg\";\n\n//# sourceURL=webpack:///./dev/App/components/assets/up-arrow.svg?");
+
+/***/ }),
+
+/***/ "./dev/App/components/assets/yellow-star.svg":
+/*!***************************************************!*\
+  !*** ./dev/App/components/assets/yellow-star.svg ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"3dc2060199df64cf2ecc2328e6ac5949.svg\";\n\n//# sourceURL=webpack:///./dev/App/components/assets/yellow-star.svg?");
 
 /***/ }),
 
