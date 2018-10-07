@@ -33,12 +33,34 @@ const addSingleObjectToIndex = async (req, res) => {
   }
 };
 
-const deleteObjectFromIndex = (req, res) => {
-  console.log("hit deleteObjectFromIndex controller in DELETE /api/1/apps/:id");
-  res.send("hit deleteObjectFromIndex controller in DELETE /api/1/apps/:id");
+const deleteSingleObjectFromIndex = async (req, res) => {
+  try {
+    const objID = req.params.id;
+
+    if (!objID) {
+      res.send({
+        error: true,
+        message:
+          "There was an error with your deletion request. Please try again."
+      });
+    } else {
+      // deleteObject deletes single object
+      // multiple object deletion uses index.deleteObjects
+      const deleteResponse = await index.deleteObject(objID);
+
+      res.send(deleteResponse.objectID);
+    }
+  } catch (error) {
+    console.log("Error deleting object from Algolia index ", error);
+    res.send({
+      error: true,
+      message:
+        "There was an error with your deletion request. Please try again."
+    });
+  }
 };
 
 module.exports = {
   addSingleObjectToIndex,
-  deleteObjectFromIndex
+  deleteSingleObjectFromIndex
 };
