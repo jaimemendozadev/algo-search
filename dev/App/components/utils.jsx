@@ -30,7 +30,9 @@ export const hideElement = hideElement => {
 // indexes with less than 101 pages of results
 // page starts at 0 index
 export const calculatePagination = (page, nbPages) => {
-  const ActualPage = page + 1;
+  console.log("page inside calculatePag ", page);
+  console.log("nbPages inside calculatePage", nbPages);
+
   const TotalPages = nbPages;
 
   // Edge Case: when we only have one page of data
@@ -57,9 +59,12 @@ export const calculatePagination = (page, nbPages) => {
     // Calculate the high & make sure we don't
     // go over the totalPages
     let high = (baseNumber + 1) * 10;
-    high = high <= TotalPages ? high : TotalPages + 1;
+    high = high <= TotalPages ? high : TotalPages;
 
     let minimum = baseNumber * 10;
+
+    console.log("minimum is ", minimum);
+    console.log("high is ", high);
 
     return [minimum, high];
   }

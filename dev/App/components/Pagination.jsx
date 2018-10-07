@@ -18,44 +18,34 @@ class Pagination extends Component {
   handlePageClick = pageNumber => {
     const { helper } = this.props;
 
-    console.log("page number is ", pageNumber);
-
-    this.setState(
-      {
-        currentPage: pageNumber
-      },
-      () => helper.setPage(pageNumber).search()
-    );
+    helper.setPage(pageNumber).search();
   };
 
   handleButtonClick = buttonType => {
-    const { currentPage, totalPages } = this.state;
-
+    const { page, nbPages } = this.props;
+    const currentPage = page;
+    const totalPages = nbPages;
     const nextPage = currentPage + 1;
+    const lastPage = totalPages - 1;
 
     // First Previous Next Last
     if (buttonType === "Next" && !nextPage > totalPages) {
       this.handlePageClick(nextPage);
     }
-  };
 
-  setPaginationState = () => {
-    const { page, nbPages } = this.props;
-    const [minimum, high] = calculatePagination(page, nbPages);
-
-    this.setState({
-      currentPage: page,
-      totalPages: nbPages,
-      minimum,
-      high
-    });
+    if (buttonType === "Last") {
+      this.handlePageClick(lastPage);
+    }
   };
 
   renderPageTiles = () => {
-    const { minimum, high, currentPage } = this.state;
+    const { page, nbPages } = this.props;
+    const currentPage = page;
+
+    const [minimum, high] = calculatePagination(page, nbPages);
+
     const tiles = [];
 
-    let start = minimum;
     // Even if we only have one page of data, we'll create one tile
     // Pagination won't appear if both minimum/high are 0
 
@@ -77,15 +67,10 @@ class Pagination extends Component {
 
   render() {
     const { paginationSet } = this.props;
-    const { minimum, high } = this.state;
 
     if (paginationSet === false) {
       return null;
-    } else if (minimum === null && high === null) {
-      this.setPaginationState();
     }
-
-    console.log("this.state inside pagination ", this.state);
 
     return (
       <div className="pagination-container">
@@ -102,7 +87,12 @@ class Pagination extends Component {
         >
           Next
         </div>
-        <div className="pagination-last">Last</div>
+        <div
+          onClick={() => this.handleButtonClick("Last")}
+          className="pagination-last"
+        >
+          Last
+        </div>
       </div>
     );
   }
