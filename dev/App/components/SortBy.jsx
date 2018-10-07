@@ -3,6 +3,8 @@ import { connect } from "inferno-redux";
 import { hideElement, displayCurrentSetting } from "./utils.jsx";
 import { resetTheForm } from "../services/redux/actions";
 
+const ALGOLIA_INDEX_NAME = process.env.ALGOLIA_INDEX_NAME;
+
 const defaultState = {
   hideDropdown: true,
   sortBy: null
@@ -37,8 +39,8 @@ class SortBy extends Component {
     const { helper, hideDropdown } = this.props;
 
     const indexKey = {
-      "Asc. Rank": "app_store_index_rank_asc",
-      "Desc. Rank": "app_store_index_rank_desc"
+      "Asc. Rank": `${ALGOLIA_INDEX_NAME}_rank_asc`,
+      "Desc. Rank": `${ALGOLIA_INDEX_NAME}_rank_desc`
     };
 
     this.setState(

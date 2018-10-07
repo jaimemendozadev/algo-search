@@ -6,7 +6,7 @@ A mock-up App Store that uses the [Algolia](https://www.algolia.com/) search-as-
 ## Table of contents
 
 - Initial Setup
-- Algolia Account Sign Up and Seeding Mock Data
+- Algolia Account Sign Up
 - Create a `.env` File
 - Seeding Mock Data
 - Starting the App
@@ -25,7 +25,7 @@ You'll need to [create an Algolia account](https://www.algolia.com/users/sign_up
 *Note*: When we say `index`, think `database`.
 
 
-After creating an account, look at the [Header of the Dashboard](https://www.algolia.com/doc/tutorials/getting-started/getting-started-with-the-dashboard/?language=javascript#dashboard-layout) and write down your App ID. It'll go in the `.env` under `ALGOLIA_APP_ID` (see [Create a `.env` File](#create-a-.env-file) section).
+After creating an account, look at the [Header of the Dashboard](https://www.algolia.com/doc/tutorials/getting-started/getting-started-with-the-dashboard/?language=javascript#dashboard-layout) and write down your App ID. It'll go in the `.env` under the `ALGOLIA_APP_ID` variable (see [Create a `.env` File](#create-a-.env-file) section).
 
 The [documentation](https://www.algolia.com/doc/) on the Algolia website should help if you have a question regarding the functionality of the API.
 
@@ -33,9 +33,9 @@ Next, [navigate the dashboard](https://www.algolia.com/doc/tutorials/getting-sta
 
 ![algolia_dashboard_screenshot](assets/algolia_dashboard_screenshot.png)
 
-You'll need to get the `Search-Only API Key` to search for app results on the frontend and the `Admin API Key` to initially setup and seed your index. Both will go in your `.env` (see [Create a `.env` File](#create-a-.env-file) section). 
+You'll need to get the `Search-Only API Key` to search for app results on the frontend and the `Admin API Key` to initially setup and seed your index. Both will respectively go in the `ALGOLIA_PUBLIC_SEARCH_API_KEY` and `ALGOLIA_SECRET_API_KEY` variables of your `.env` file (see [Create a `.env` File](#create-a-.env-file) section). 
 
-You will also need to create another API Key to handle `POST` and `DELETE` requests on the Node server. This API Key will should be placed in the `.env` file under `ALGOLIA_SECRET_SERVER_KEY`. Please see the Algolia docs on [API Key creation](https://www.algolia.com/doc/guides/security/api-keys/#generating-api-keys) and make sure the API key has the right permissions for adding and deleting objects. 
+You will also need to create another API Key to handle `POST` and `DELETE` requests on the Node server. This API Key will should be placed in the `.env` file under the `ALGOLIA_SECRET_SERVER_KEY` variable. Please see the Algolia docs on [API Key creation](https://www.algolia.com/doc/guides/security/api-keys/#generating-api-keys) and make sure the API key has the right permissions for adding and deleting objects. 
 
 
 ## Create a `.env` File
