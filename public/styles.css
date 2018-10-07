@@ -9,6 +9,12 @@ body {
   box-sizing: border-box;
   font-family: 'Eczar', serif; }
 
+/* Defaults */
+/* FacetList Variables */
+/* ErrorMessage Variables */
+/* Pagination Variables */
+/* ResultCard Variables */
+/* SortBy Variables */
 .spinner {
   margin: 2em auto 0;
   border: 15px solid #2571ED;
@@ -227,7 +233,7 @@ header {
   padding: 10px;
   margin-bottom: 1.5em; }
   .result-card:hover {
-    border: 1px solid goldenrod; }
+    border: 1px solid #2571ED; }
   .result-card .highlighted em {
     background-color: yellow; }
   .result-card .yellow-star {

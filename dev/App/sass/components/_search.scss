@@ -1,5 +1,3 @@
-$default-font-color: grey;
-
 .search-bar-container {
     display: flex;
     flex-direction: column;
@@ -9,7 +7,7 @@ $default-font-color: grey;
   .searchForm {
     .searchInput {
       text-align: center;
-      border: 1px solid black;
+      border: $default-border-color-weight;
       font-size: 2em;
       padding: 1em;
       color: $default-font-color;

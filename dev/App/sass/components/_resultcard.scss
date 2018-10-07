@@ -1,5 +1,5 @@
 .result-card {
-    border: 1px solid black;
+    border: $default-border-color-weight;
     width: 200px;
     height: 250px;
     display: flex;
@@ -9,11 +9,11 @@
     margin-bottom: 1.5em;
 
     &:hover {
-      border: 1px solid goldenrod;
+      border: $hover-border-color;
     }
   
     .highlighted em {
-      background-color: yellow;
+      background-color: $highlighted-bg-color;
     }
 
     .yellow-star {

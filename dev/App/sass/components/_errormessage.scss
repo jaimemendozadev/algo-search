@@ -1,8 +1,8 @@
 .error-message {
   height: 200px;
   width: 80%;
-  background-color: #F8F8F8;
-  color: #0B0B0B;
+  background-color: $error-msg-bg-color;
+  color: $error-msg-text-color;
   text-align: center;
   position: relative;
 

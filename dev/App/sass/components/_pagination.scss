@@ -1,5 +1,4 @@
 .pagination-container {
-
   height: 50px;
   border: 1px solid pink;
   display: flex;
@@ -15,7 +14,7 @@
 .pagination-last {
   height: 50px;
   width: 80px;
-  border: 1px solid black;
+  border: $default-border-color-weight;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,8 +33,7 @@
   
 
   .pagination-tiles {
-
-    border: 1px solid black;
+    border: $default-border-color-weight;
     
     height: 50px;
     width: 50px;
@@ -44,8 +42,8 @@
     justify-content: center;
 
     &.current-tile {
-      background-color: #2571ED;
-      color: white;
+      background-color: $pagination-tile-bg-color;
+      color: $pagination-text-color;
     }
   }
   
