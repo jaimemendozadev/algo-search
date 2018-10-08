@@ -1,24 +1,23 @@
 .facetlist-container {
-    border: $default-border-color-weight;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  
-    .category-tag {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: $default-border-color-weight;
-      color: $default-font-color;
-      margin-bottom: 1em;
-      width: 80%;
-      height: 50px;
-    }
-  }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-  .facet-highlight {
-    background-color: $facet-highlight-bg-color;
-    color: $facet-font-color;
+  .category-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: $default-border-color-weight;
+    color: $default-font-color;
+    margin-bottom: 1em;
+    width: 80%;
+    height: 50px;
   }
+}
+
+.facet-highlight {
+  background-color: $facet-highlight-bg-color;
+  color: $facet-font-color;
+}
