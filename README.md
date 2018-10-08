@@ -10,6 +10,7 @@ A mock-up App Store that uses the [Algolia](https://www.algolia.com/) search-as-
 - Create a `.env` File
 - Seeding Mock Data
 - Starting the App
+- App Notes
 - Future +Plus Features
 - Created By
 
@@ -35,7 +36,7 @@ Next, [navigate the dashboard](https://www.algolia.com/doc/tutorials/getting-sta
 
 You'll need to get the `Search-Only API Key` to search for app results on the frontend and the `Admin API Key` to initially setup and seed your index. Both will respectively go in the `ALGOLIA_PUBLIC_SEARCH_API_KEY` and `ALGOLIA_SECRET_API_KEY` variables of your `.env` file (see [Create a `.env` File](#create-a-.env-file) section). 
 
-You will also need to create another API Key to handle `POST` and `DELETE` requests on the Node server. This API Key will should be placed in the `.env` file under the `ALGOLIA_SECRET_SERVER_KEY` variable. Please see the Algolia docs on [API Key creation](https://www.algolia.com/doc/guides/security/api-keys/#generating-api-keys) and make sure the API key has the right permissions for adding and deleting objects. 
+You will also need to create another API Key to handle `POST` and `DELETE` requests on the Node server. This API Key will be placed in the `.env` file under the `ALGOLIA_SECRET_SERVER_KEY` variable. Please see the Algolia docs on [API Key creation](https://www.algolia.com/doc/guides/security/api-keys/#generating-api-keys) and make sure the API key has the right permissions for adding and deleting objects. 
 
 
 ## Create a `.env` File
@@ -73,7 +74,7 @@ Now you're ready to seed your Algolia index. If you're curious, you can go to `s
 
 This project uses the [Yarn package manager](https://yarnpkg.com/en/). Go to the Yarn website to learn more about how to install the package manger on your computer.
 
-In the root of the app, use your terminal to run `$ yarn run seed` to seed the Algolia index. You should see a message in the terminal that says `Algolia Index has Seed Data!`.
+In the root of the app, use your terminal to run `$ yarn run seed` to seed the Algolia index. You should see a message in the terminal that says "`Algolia Index has Seed Data!`".
 
 
 ## Starting the App
@@ -89,9 +90,33 @@ Go to `http://localhost:3000` in your favorite browser to view the website.
 Remember, you can always stop the server from running by typing `Control + z` in the terminal window you used to start the app.
 
 
+## App Notes
+
+### 🖥  Backend
+
+There's a REST API that implements the following endpoints:
+
+[x] `POST /api/1/apps` => Adds an app (as a JSON object) to the Algolia apps index and returns the id.
+
+[x] `DELETE /api/1/apps/:id` => Deletes an app from the Algolia index.
+
+
+### 📱 Frontend
+
+The frontend uses [Inferno.js](https://infernojs.org/) and includes:
+
+[x] A search box.
+
+[x] A list of apps found (hits).
+
+[x] A categories filtering (faceting).
+
+[x] A way to sort the results by rank ASC or rank DESC (default).
+
+
 ## Future +Plus Features
-
-
+- Responsive Design (Frontend starts breaking at 1130px).
+- Client Routing (Server responds to fake routes by sending `index.html` file back to client).
 
 ## Created By
 
