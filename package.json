@@ -6,6 +6,7 @@
   "scripts": {
     "clean:public": "rm ./public/bundle.js && rm ./public/*.svg && rm ./public/*.png && rm ./public/*.css",
     "seed": "node seed/index.js",
+    "start": "node index.js",
     "dev:start": "nodemon index.js",
     "dev:build": "webpack --mode=development --watch"
   },
@@ -60,6 +61,10 @@
     "style-loader": "^0.23.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "yarn": "1.10.1"
   },
   "husky": {
     "hooks": {
