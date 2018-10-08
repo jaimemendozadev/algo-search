@@ -71,3 +71,9 @@ typings/
 
 # Serverless directories
 .serverless
+
+# public folder build files
+public/*.svg
+public/*.png
+public/styles.css
+public/bundle.js
