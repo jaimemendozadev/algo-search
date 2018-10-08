@@ -28,14 +28,11 @@ class Pagination extends Component {
     const nextPage = currentPage + 1;
     const lastPage = totalPages - 1;
 
-    // First Previous Next Last
-
     if (buttonType === "First") {
       this.handlePageClick(0);
     }
 
     if (buttonType === "Previous" && !(currentPage - 1 < 0)) {
-      console.log("inside Previous conditional");
       this.handlePageClick(currentPage - 1);
     }
 
@@ -56,8 +53,8 @@ class Pagination extends Component {
 
     const tiles = [];
 
-    // Even if we only have one page of data, we'll create one tile
-    // Pagination won't appear if both minimum/high are 0
+    // Even if we only have one page of data, we'll create one tile.
+    // Pagination won't appear if both minimum/high are 0.
 
     for (let start = minimum; start < high; start++) {
       tiles.push(

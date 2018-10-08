@@ -13,13 +13,13 @@ const addSingleObjectToIndex = async (req, res) => {
         message: "That data you sent is invalid. Please try again."
       });
     } else {
-      // Must convert Rank to Number for sorting
+      // Must convert Rank to Number for sorting.
       const convertedRank = +payload.rank;
 
       payload.rank = convertedRank;
 
-      // addObject creates single object
-      // multiple object creation uses index.addObjects
+      // addObject creates single object.
+      // Multiple object creation uses index.addObjects.
       const indexResult = await index.addObject(payload);
 
       res.send(indexResult.objectID);
@@ -44,8 +44,8 @@ const deleteSingleObjectFromIndex = async (req, res) => {
           "There was an error with your deletion request. Please try again."
       });
     } else {
-      // deleteObject deletes single object
-      // multiple object deletion uses index.deleteObjects
+      // deleteObject deletes single object.
+      // Multiple object deletion uses index.deleteObjects.
       const deleteResponse = await index.deleteObject(objID);
 
       res.send(deleteResponse.objectID);

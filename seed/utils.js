@@ -15,8 +15,6 @@ const getImageUrl = async uri => {
 
       const imageURL = fetched.find("img").attr("src");
 
-      console.log("imageURL is ", imageURL);
-
       return imageURL;
     });
 

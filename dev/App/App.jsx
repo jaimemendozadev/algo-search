@@ -16,11 +16,6 @@ class App extends Component {
     helper.on("result", content => {
       const facetValues = content.getFacetValues("category");
 
-      console.log("facetValues in App CDM ", facetValues);
-      console.log("content in App CDM is ", content);
-      console.log("\n");
-      console.log("\n");
-
       // on App componentDidMount, we setup helper to listen for "results"
       // on "results" event, we'll get new hits and facet category values
       // will also turn app status to hasStarted
@@ -35,8 +30,8 @@ class App extends Component {
     const { client, helper } = this.props;
     return (
       <div className="app-container">
-        <Header />
         <div className="header-search-sort-container">
+          <Header />
           <Pagination helper={helper} />
 
           <div className="search-sort-container">

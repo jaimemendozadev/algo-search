@@ -1,8 +1,6 @@
 const oldRecords = require("./app_seed_data.json");
 const { getImageUrl } = require("./utils");
 
-console.log("records.length is ", oldRecords.length);
-
 const updateJSON = async () => {
   const testArray = [];
   const newData = [];

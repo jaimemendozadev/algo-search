@@ -50,7 +50,7 @@ class Search extends Component {
     const { searchTerm } = this.state;
 
     // On submit, we fire helper.setQuery and
-    // helper listens for result in App componentDidMount
+    // helper listens for result in App componentDidMount.
 
     this.setState(defaultState, () => this.makeAPICall(searchTerm));
   };
