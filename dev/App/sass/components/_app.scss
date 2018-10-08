@@ -24,7 +24,7 @@
 
 .results-facetlist-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
 
   .facetlist-container {
@@ -32,6 +32,6 @@
   }
 
   .results-view-container {
-    width: 70%;
+    width: 75%;
   }
 }

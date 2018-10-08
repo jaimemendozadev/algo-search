@@ -35,9 +35,8 @@ class App extends Component {
     const { client, helper } = this.props;
     return (
       <div className="app-container">
+        <Header />
         <div className="header-search-sort-container">
-          <Header />
-
           <Pagination helper={helper} />
 
           <div className="search-sort-container">
