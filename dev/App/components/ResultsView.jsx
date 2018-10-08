@@ -5,7 +5,6 @@ import ResultCard from "./ResultCard.jsx";
 
 const ResultsView = ({ hits, appStatus }) => {
   const { appStarted, fetchingData } = appStatus;
-  console.log("fetchingData is ", fetchingData);
   if (appStarted === false || fetchingData === true) {
     return <Spinner />;
   }
