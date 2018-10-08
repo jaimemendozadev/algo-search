@@ -2,6 +2,8 @@
 
 A mock-up App Store that uses the [Algolia](https://www.algolia.com/) search-as-a-service API for ⚡️ fast search results.
 
+Deployed Version: [https://algo-search.herokuapp.com/](https://algo-search.herokuapp.com/)
+
 
 ## Table of contents
 
