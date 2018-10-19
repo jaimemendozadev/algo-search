@@ -20,5 +20,8 @@ module.exports = {
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin({ filename: "styles.css" }), new Dotenv()]
+  plugins: [
+    new MiniCssExtractPlugin({ filename: "styles.css" }),
+    new Dotenv({ path: path.resolve(__dirname, "./.env") })
+  ]
 };
