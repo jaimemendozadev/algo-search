@@ -14,6 +14,7 @@ const helperOptions = {
   facets: ["category"],
   hitsPerPage: 30
 };
+console.log("process.env.ALGOLIA_APP_ID is ", process.env.ALGOLIA_APP_ID);
 
 const client = algoliasearch(
   process.env.ALGOLIA_APP_ID,
