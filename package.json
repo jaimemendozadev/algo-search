@@ -6,7 +6,7 @@
   "scripts": {
     "clean:public": "rm ./public/bundle.js && rm ./public/*.svg && rm ./public/*.png && rm ./public/*.css",
     "seed": "node seed/index.js",
-    "start": "yarn install && yarn run prod:build && node index.js",
+    "start": "yarn install --production=false && yarn run prod:build && node index.js",
     "dev:start": "nodemon index.js",
     "prod:build": "webpack --mode=production",
     "dev:build": "webpack --mode=development --watch",
